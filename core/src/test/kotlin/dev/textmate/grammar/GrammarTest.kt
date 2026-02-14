@@ -25,36 +25,39 @@ class GrammarTest {
     @Test
     fun `tokenize empty string`() {
         val result = grammar.tokenizeLine("")
-        assertTrue("Should have at least one token", result.tokens.isNotEmpty())
-        assertTrue(
-            "Token should include source.json scope",
-            result.tokens.any { token -> token.scopes.any { it.contains("source.json") } }
-        )
+        assertEquals("Should have exactly one token", 1, result.tokens.size)
+        val token = result.tokens[0]
+        assertEquals(0, token.startIndex)
+        assertTrue("Token should include source.json", token.scopes.contains("source.json"))
     }
 
     @Test
     fun `tokenize JSON boolean`() {
         val result = grammar.tokenizeLine("true")
-        val hasConstantLanguage = result.tokens.any { token ->
-            token.scopes.any { it.contains("constant.language") }
-        }
-        assertTrue("'true' should produce a constant.language scope", hasConstantLanguage)
+        assertEquals("Should have exactly one token", 1, result.tokens.size)
+        val token = result.tokens[0]
+        assertEquals(0, token.startIndex)
+        assertEquals(4, token.endIndex)
+        assertTrue(token.scopes.contains("source.json"))
+        assertTrue(token.scopes.contains("constant.language.json"))
     }
 
     @Test
     fun `tokenize JSON number`() {
         val result = grammar.tokenizeLine("42")
-        val hasConstantNumeric = result.tokens.any { token ->
-            token.scopes.any { it.contains("constant.numeric") }
-        }
-        assertTrue("'42' should produce a constant.numeric scope", hasConstantNumeric)
+        assertEquals("Should have exactly one token", 1, result.tokens.size)
+        val token = result.tokens[0]
+        assertEquals(0, token.startIndex)
+        assertEquals(2, token.endIndex)
+        assertTrue(token.scopes.contains("source.json"))
+        assertTrue(token.scopes.contains("constant.numeric.json"))
     }
 
     @Test
     fun `tokenize JSON object`() {
         val result = grammar.tokenizeLine("""{"key": "value"}""")
         val hasStringScope = result.tokens.any { token ->
-            token.scopes.any { it.contains("string") }
+            token.scopes.contains("string.quoted.double.json")
         }
         assertTrue("JSON object should have string scopes", hasStringScope)
     }
@@ -77,6 +80,12 @@ class GrammarTest {
         }
 
         assertEquals("Last token should end at line length", line.length, tokens.last().endIndex)
+
+        // No token should extend beyond the original line
+        assertTrue(
+            "No token should have endIndex > line.length",
+            tokens.all { it.endIndex <= line.length }
+        )
     }
 
     @Test
@@ -85,23 +94,20 @@ class GrammarTest {
         val result2 = grammar.tokenizeLine(""""key": "value"""", result1.ruleStack)
 
         val hasStringScope = result2.tokens.any { token ->
-            token.scopes.any { it.contains("string") }
+            token.scopes.contains("string.quoted.double.json")
         }
         assertTrue("Line 2 should have string scopes using prevState", hasStringScope)
     }
 
     @Test
-    fun `multiline block comment`() {
-        // JSON grammar supports block comments (jsonc-style comments in some grammars)
-        // The JSON grammar from VS Code supports line comments
-        // Let's test with a string that spans conceptually via state
+    fun `multiline array tokenization`() {
         val result1 = grammar.tokenizeLine("[")
         val result2 = grammar.tokenizeLine("1,", result1.ruleStack)
 
-        val hasNumericScope = result2.tokens.any { token ->
-            token.scopes.any { it.contains("constant.numeric") }
+        val numericToken = result2.tokens.find { token ->
+            token.scopes.contains("constant.numeric.json")
         }
-        assertTrue("Number inside array on line 2 should have numeric scope", hasNumericScope)
+        assertNotNull("Number inside array on line 2 should have numeric scope", numericToken)
     }
 
     @Test
@@ -111,20 +117,85 @@ class GrammarTest {
 
         assertEquals(
             "INITIAL should produce same tokens as null",
-            resultNull.tokens.map { it.scopes },
-            resultInitial.tokens.map { it.scopes }
+            resultNull.tokens,
+            resultInitial.tokens
         )
     }
 
     @Test
     fun `detailed scope check for curly brace`() {
         val result = grammar.tokenizeLine("{")
-        val braceToken = result.tokens.find { token ->
-            token.scopes.any { it.contains("punctuation.definition.dictionary.begin") }
-        }
-        assertNotNull(
-            "'{' should have punctuation.definition.dictionary.begin scope",
-            braceToken
+        assertEquals("Should have exactly one token", 1, result.tokens.size)
+        val token = result.tokens[0]
+        assertEquals(0, token.startIndex)
+        assertEquals(1, token.endIndex)
+        assertTrue(token.scopes.contains("punctuation.definition.dictionary.begin.json"))
+        assertTrue(token.scopes.contains("meta.structure.dictionary.json"))
+        assertTrue(token.scopes.contains("source.json"))
+    }
+
+    @Test
+    fun `string literal produces begin content and end tokens`() {
+        val result = grammar.tokenizeLine("\"hello\"")
+        val tokens = result.tokens
+        assertEquals("String should produce 3 tokens", 3, tokens.size)
+
+        // Opening quote
+        val begin = tokens[0]
+        assertEquals(0, begin.startIndex)
+        assertEquals(1, begin.endIndex)
+        assertTrue(begin.scopes.contains("punctuation.definition.string.begin.json"))
+
+        // String content
+        val content = tokens[1]
+        assertEquals(1, content.startIndex)
+        assertEquals(6, content.endIndex)
+        assertTrue(content.scopes.contains("string.quoted.double.json"))
+
+        // Closing quote
+        val end = tokens[2]
+        assertEquals(6, end.startIndex)
+        assertEquals(7, end.endIndex)
+        assertTrue(end.scopes.contains("punctuation.definition.string.end.json"))
+    }
+
+    @Test
+    fun `three-line tokenization with state passing`() {
+        val r1 = grammar.tokenizeLine("{")
+        val r2 = grammar.tokenizeLine("  \"key\": true", r1.ruleStack)
+        val r3 = grammar.tokenizeLine("}", r2.ruleStack)
+
+        // Line 2 should have property-name and boolean scopes
+        assertTrue(r2.tokens.any { it.scopes.contains("support.type.property-name.json") })
+        assertTrue(r2.tokens.any { it.scopes.contains("constant.language.json") })
+
+        // Line 3 tokens should cover the full line
+        assertEquals(0, r3.tokens.first().startIndex)
+        assertEquals(1, r3.tokens.last().endIndex)
+    }
+
+    // --- Markdown grammar tests (BeginWhileRule coverage) ---
+
+    @Test
+    fun `Markdown fenced code block exercises BeginWhileRule`() {
+        val mdGrammar = loadGrammar("grammars/markdown.tmLanguage.json")
+
+        // ``` triggers a BeginWhileRule (fenced_code.block)
+        val r1 = mdGrammar.tokenizeLine("```")
+        assertTrue(
+            "Fenced code opener should have fenced_code scope",
+            r1.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+        assertTrue(
+            "Fenced code opener should have punctuation scope",
+            r1.tokens.any { it.scopes.contains("punctuation.definition.markdown") }
+        )
+
+        // Content inside the fenced code block should carry state
+        val r2 = mdGrammar.tokenizeLine("code here", r1.ruleStack)
+        assertTrue(
+            "Content inside fenced code should still have fenced_code scope",
+            r2.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
         )
     }
 }

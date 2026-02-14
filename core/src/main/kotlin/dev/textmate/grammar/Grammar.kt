@@ -101,7 +101,8 @@ class Grammar(
             )
         } else {
             isFirstLine = false
-            state = prevState as StateStackImpl
+            state = prevState as? StateStackImpl
+                ?: error("prevState must be a StateStack returned by a previous tokenizeLine call")
             state.reset()
         }
 

@@ -43,6 +43,6 @@ internal class LineTokens {
             _tokens[_tokens.lastIndex] = last.copy(startIndex = 0)
         }
 
-        return _tokens
+        return _tokens.toList()
     }
 }

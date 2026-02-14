@@ -45,19 +45,24 @@ internal fun tokenizeString(
         val captureIndices = r.captureIndices
         val matchedRuleId = r.matchedRuleId
 
-        val hasAdvanced = captureIndices.isNotEmpty() && captureIndices[0].end > currentLinePos
+        if (captureIndices.isEmpty()) {
+            // Defensive: OnigScanner should always return capture group 0 for a match
+            lineTokens.produce(currentStack, lineLength)
+            break
+        }
+
+        val hasAdvanced = captureIndices[0].end > currentLinePos
 
         if (matchedRuleId == RuleId.END_RULE) {
             // We matched the `end` for this rule => pop it
             val poppedRule = currentStack.getRule(grammar) as? BeginEndRule
+                ?: error("END_RULE matched but current rule is not a BeginEndRule")
 
             lineTokens.produce(currentStack, captureIndices[0].start)
 
             currentStack = currentStack.withContentNameScopesList(currentStack.nameScopesList)
 
-            if (poppedRule != null) {
-                handleCaptures(grammar, lineText, currentIsFirstLine, currentStack, lineTokens, poppedRule.endCaptures, captureIndices)
-            }
+            handleCaptures(grammar, lineText, currentIsFirstLine, currentStack, lineTokens, poppedRule.endCaptures, captureIndices)
 
             lineTokens.produce(currentStack, captureIndices[0].end)
 
@@ -87,8 +92,10 @@ internal fun tokenizeString(
             val beforePush = currentStack
 
             val scopeName = rule.getName(lineText.content, captureIndices)
-            val nameScopesList = currentStack.contentNameScopesList?.pushAttributed(scopeName, grammar)
-                ?: currentStack.nameScopesList?.pushAttributed(scopeName, grammar)
+            val contentNameScopesList = checkNotNull(currentStack.contentNameScopesList) {
+                "contentNameScopesList must not be null during tokenization"
+            }
+            val nameScopesList = contentNameScopesList.pushAttributed(scopeName, grammar)
 
             currentStack = currentStack.push(
                 ruleId = matchedRuleId,
