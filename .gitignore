@@ -30,3 +30,6 @@ Thumbs.db
 *.env
 *.local
 .local-repo/
+
+# Reference source
+vscode-textmate/
