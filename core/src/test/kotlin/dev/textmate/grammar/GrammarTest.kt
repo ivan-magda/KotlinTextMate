@@ -175,6 +175,58 @@ class GrammarTest {
         assertEquals(1, r3.tokens.last().endIndex)
     }
 
+    // --- Kotlin grammar tests (capture retokenization) ---
+
+    @Test
+    fun `Kotlin fun keyword and function name scoped correctly`() {
+        val ktGrammar = loadGrammar("grammars/Kotlin.tmLanguage.json")
+        val result = ktGrammar.tokenizeLine("fun main(args: Array<String>)")
+        assertTrue(
+            "Should have keyword.hard.fun scope",
+            result.tokens.any { it.scopes.contains("keyword.hard.fun.kotlin") }
+        )
+        assertTrue(
+            "Should have function name scope",
+            result.tokens.any { it.scopes.contains("entity.name.function.declaration.kotlin") }
+        )
+    }
+
+    @Test
+    fun `Kotlin generic function retokenizes type parameters`() {
+        val ktGrammar = loadGrammar("grammars/Kotlin.tmLanguage.json")
+        val result = ktGrammar.tokenizeLine("fun <T> test()")
+        assertTrue(
+            "Should have type parameter scope from retokenization",
+            result.tokens.any { it.scopes.contains("entity.name.type.kotlin") }
+        )
+        assertTrue(
+            "Should have function name scope",
+            result.tokens.any { it.scopes.contains("entity.name.function.declaration.kotlin") }
+        )
+    }
+
+    @Test
+    fun `Kotlin function tokens cover entire line`() {
+        val ktGrammar = loadGrammar("grammars/Kotlin.tmLanguage.json")
+        val line = "fun main(args: Array<String>)"
+        val result = ktGrammar.tokenizeLine(line)
+        val tokens = result.tokens
+
+        assertEquals("First token should start at 0", 0, tokens.first().startIndex)
+        for (i in 1 until tokens.size) {
+            assertEquals(
+                "Token $i should start where token ${i - 1} ends",
+                tokens[i - 1].endIndex,
+                tokens[i].startIndex
+            )
+        }
+        // Last token may extend 1 past line.length due to appended \n (matches vscode-textmate behavior)
+        assertTrue(
+            "Last token should end at or past line length",
+            tokens.last().endIndex >= line.length
+        )
+    }
+
     // --- Markdown grammar tests (BeginWhileRule coverage) ---
 
     @Test

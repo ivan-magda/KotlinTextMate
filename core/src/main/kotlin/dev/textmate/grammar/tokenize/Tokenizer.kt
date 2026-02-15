@@ -20,7 +20,7 @@ internal data class MatchRuleResult(
 
 /**
  * Core tokenization loop — port of `_tokenizeString` from vscode-textmate `tokenizeString.ts`.
- * Simplified for Stage 4b: no injection grammars, no time limits, no BeginWhile condition checking.
+ * Pending: injection grammars, time limits, BeginWhile condition checking.
  */
 internal fun tokenizeString(
     grammar: Grammar,
@@ -221,7 +221,6 @@ internal fun matchRule(
 
 /**
  * Handle capture rules for a match.
- * Simplified for Stage 4b: no `retokenizeCapturedWithRuleId` support.
  */
 internal fun handleCaptures(
     grammar: Grammar,
@@ -259,7 +258,36 @@ internal fun handleCaptures(
             lineTokens.produce(stack, captureIndex.start)
         }
 
-        // Skip retokenizeCapturedWithRuleId for Stage 4b
+        if (captureRule.retokenizeCapturedWithRuleId != RuleId.NO_RULE) {
+            val scopeName = captureRule.getName(lineTextContent, captureIndices)
+            val nameScopesList = checkNotNull(stack.contentNameScopesList) {
+                "contentNameScopesList must not be null during capture retokenization"
+            }.pushAttributed(scopeName, grammar)
+            val contentName = captureRule.getContentName(lineTextContent, captureIndices)
+            val contentNameScopesList = nameScopesList.pushAttributed(contentName, grammar)
+
+            val stackClone = stack.push(
+                ruleId = captureRule.retokenizeCapturedWithRuleId,
+                enterPos = captureIndex.start,
+                anchorPos = -1,
+                beginRuleCapturedEOL = false,
+                endRule = null,
+                nameScopesList = nameScopesList,
+                contentNameScopesList = contentNameScopesList
+            )
+            val onigSubStr = grammar.createOnigString(
+                lineTextContent.substring(0, captureIndex.end)
+            )
+            tokenizeString(
+                grammar = grammar,
+                lineText = onigSubStr,
+                isFirstLine = isFirstLine && captureIndex.start == 0,
+                linePos = captureIndex.start,
+                stack = stackClone,
+                lineTokens = lineTokens
+            )
+            continue
+        }
 
         val captureRuleScopeName = captureRule.getName(lineTextContent, captureIndices)
         if (captureRuleScopeName != null) {
