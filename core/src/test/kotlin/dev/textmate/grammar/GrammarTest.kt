@@ -227,13 +227,13 @@ class GrammarTest {
         )
     }
 
-    // --- Markdown grammar tests (BeginWhileRule coverage) ---
+    // --- Markdown grammar tests ---
 
     @Test
-    fun `Markdown fenced code block exercises BeginWhileRule`() {
+    fun `Markdown fenced code block multiline state`() {
         val mdGrammar = loadGrammar("grammars/markdown.tmLanguage.json")
 
-        // ``` triggers a BeginWhileRule (fenced_code.block)
+        // ``` triggers fenced_code_block_unknown (a BeginEndRule)
         val r1 = mdGrammar.tokenizeLine("```")
         assertTrue(
             "Fenced code opener should have fenced_code scope",
@@ -249,6 +249,138 @@ class GrammarTest {
         assertTrue(
             "Content inside fenced code should still have fenced_code scope",
             r2.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+    }
+
+    // --- Multiline / BeginWhileRule condition checking tests ---
+
+    @Test
+    fun `multiline block comment in JSON`() {
+        // JSON block comments use BeginEndRule, verify state carries across lines
+        val r1 = grammar.tokenizeLine("/* start")
+        assertTrue(
+            "Opening line should have block comment scope",
+            r1.tokens.any { it.scopes.contains("comment.block.json") }
+        )
+
+        val r2 = grammar.tokenizeLine("middle", r1.ruleStack)
+        assertTrue(
+            "Middle line should still be inside block comment",
+            r2.tokens.any { it.scopes.contains("comment.block.json") }
+        )
+
+        val r3 = grammar.tokenizeLine("end */", r2.ruleStack)
+        assertTrue(
+            "Closing line should have block comment scope",
+            r3.tokens.any { it.scopes.contains("comment.block.json") }
+        )
+    }
+
+    @Test
+    fun `Markdown fenced code block closes properly`() {
+        val mdGrammar = loadGrammar("grammars/markdown.tmLanguage.json")
+
+        val r1 = mdGrammar.tokenizeLine("```")
+        assertTrue(
+            r1.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+
+        val r2 = mdGrammar.tokenizeLine("code here", r1.ruleStack)
+        assertTrue(
+            "Content should have fenced_code scope",
+            r2.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+
+        // Closing ``` pops the BeginEndRule
+        val r3 = mdGrammar.tokenizeLine("```", r2.ruleStack)
+
+        // Empty line after close should NOT have fenced_code scope
+        // (avoids Joni lookbehind crash from Markdown inline patterns)
+        val r4 = mdGrammar.tokenizeLine("", r3.ruleStack)
+        assertFalse(
+            "Line after closing fence should NOT have fenced_code scope",
+            r4.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+    }
+
+    @Test
+    fun `Kotlin multiline string carries state across lines`() {
+        val ktGrammar = loadGrammar("grammars/Kotlin.tmLanguage.json")
+
+        val r1 = ktGrammar.tokenizeLine("val s = \"\"\"")
+        assertTrue(
+            "Triple-quote should start a string scope",
+            r1.tokens.any { it.scopes.any { s -> s.contains("string") } }
+        )
+
+        val r2 = ktGrammar.tokenizeLine("  content", r1.ruleStack)
+        assertTrue(
+            "Content inside multiline string should have string scope",
+            r2.tokens.any { it.scopes.any { s -> s.contains("string") } }
+        )
+    }
+
+    @Test
+    fun `clean state reset after fenced code block closes`() {
+        val mdGrammar = loadGrammar("grammars/markdown.tmLanguage.json")
+
+        val r1 = mdGrammar.tokenizeLine("```")
+        val r2 = mdGrammar.tokenizeLine("code", r1.ruleStack)
+        val r3 = mdGrammar.tokenizeLine("```", r2.ruleStack)
+
+        // Separator after closed block should have separator scope, not fenced_code
+        val r4 = mdGrammar.tokenizeLine("---", r3.ruleStack)
+        assertTrue(
+            "Separator after closed block should have separator scope",
+            r4.tokens.any { it.scopes.contains("meta.separator.markdown") }
+        )
+        assertFalse(
+            "Separator after closed block should NOT have fenced_code scope",
+            r4.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+    }
+
+    // --- BeginWhileRule condition checking (raw_block) ---
+
+    @Test
+    fun `Markdown raw block BeginWhileRule stays open while indented`() {
+        val mdGrammar = loadGrammar("grammars/markdown.tmLanguage.json")
+
+        // 4-space indentation triggers raw_block (a BeginWhileRule)
+        val r1 = mdGrammar.tokenizeLine("    code")
+        assertTrue(
+            "Indented line should have raw block scope",
+            r1.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+
+        // While condition matches: still indented
+        val r2 = mdGrammar.tokenizeLine("    more code", r1.ruleStack)
+        assertTrue(
+            "Continued indented line should still have raw block scope",
+            r2.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+    }
+
+    @Test
+    fun `Markdown raw block BeginWhileRule exits on unindented line`() {
+        val mdGrammar = loadGrammar("grammars/markdown.tmLanguage.json")
+
+        // Open raw_block
+        val r1 = mdGrammar.tokenizeLine("    code")
+        assertTrue(
+            r1.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+
+        val r2 = mdGrammar.tokenizeLine("    more", r1.ruleStack)
+        assertTrue(
+            r2.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+
+        // Empty line: while condition fails, raw_block pops
+        val r3 = mdGrammar.tokenizeLine("", r2.ruleStack)
+        assertFalse(
+            "Unindented line should NOT have raw block scope",
+            r3.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
         )
     }
 }

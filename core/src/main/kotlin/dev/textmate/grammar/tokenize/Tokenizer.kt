@@ -20,7 +20,7 @@ internal data class MatchRuleResult(
 
 /**
  * Core tokenization loop — port of `_tokenizeString` from vscode-textmate `tokenizeString.ts`.
- * Pending: injection grammars, time limits, BeginWhile condition checking.
+ * Pending: injection grammars, time limits.
  */
 internal fun tokenizeString(
     grammar: Grammar,
@@ -28,15 +28,24 @@ internal fun tokenizeString(
     isFirstLine: Boolean,
     linePos: Int,
     stack: StateStackImpl,
-    lineTokens: LineTokens
+    lineTokens: LineTokens,
+    checkWhile: Boolean = false
 ): StateStackImpl {
     val lineLength = lineText.content.length
 
     var currentStack = stack
     var currentLinePos = linePos
     var currentIsFirstLine = isFirstLine
-    var anchorPosition = if (stack.beginRuleCapturedEOL) 0 else -1
+    var anchorPosition = -1
     var stop = false
+
+    if (checkWhile) {
+        val r = checkWhileConditions(grammar, lineText, currentIsFirstLine, currentLinePos, currentStack, lineTokens)
+        currentStack = r.stack
+        currentLinePos = r.linePos
+        currentIsFirstLine = r.isFirstLine
+        anchorPosition = r.anchorPosition
+    }
 
     while (!stop) {
         val r = matchRule(grammar, lineText, currentIsFirstLine, currentLinePos, currentStack, anchorPosition)
@@ -310,3 +319,82 @@ private class LocalStackElement(
     val scopes: AttributedScopeStack,
     val endPos: Int
 )
+
+private data class WhileCheckResult(
+    val stack: StateStackImpl,
+    val linePos: Int,
+    val anchorPosition: Int,
+    val isFirstLine: Boolean
+)
+
+/**
+ * Check while conditions for BeginWhileRule frames on the stack.
+ * Port of `_checkWhileConditions` from vscode-textmate `tokenizeString.ts`.
+ */
+private fun checkWhileConditions(
+    grammar: Grammar,
+    lineText: OnigString,
+    isFirstLine: Boolean,
+    linePos: Int,
+    stack: StateStackImpl,
+    lineTokens: LineTokens
+): WhileCheckResult {
+    var anchorPosition = if (stack.beginRuleCapturedEOL) 0 else -1
+    var currentStack: StateStackImpl = stack
+    var currentLinePos = linePos
+    var currentIsFirstLine = isFirstLine
+
+    // Walk stack bottom-to-top, collect BeginWhileRule frames
+    data class WhileStackEntry(val stack: StateStackImpl, val rule: BeginWhileRule)
+    val whileRules = mutableListOf<WhileStackEntry>()
+    var node: StateStackImpl? = currentStack
+    while (node != null) {
+        val nodeRule = node.getRule(grammar)
+        if (nodeRule is BeginWhileRule) {
+            whileRules.add(WhileStackEntry(node, nodeRule))
+        }
+        node = node.pop()
+    }
+
+    // Process in reverse (outermost BeginWhileRule first)
+    while (whileRules.isNotEmpty()) {
+        val entry = whileRules.removeLast()
+        val ruleScanner = entry.rule.compileWhileAG(
+            grammar, entry.stack.endRule,
+            allowA = currentIsFirstLine,
+            allowG = currentLinePos == anchorPosition
+        )
+        val r = ruleScanner.findNextMatchSync(lineText, currentLinePos)
+
+        if (r != null) {
+            if (r.ruleId != RuleId.WHILE_RULE) {
+                // Shouldn't happen — pop and stop
+                currentStack = checkNotNull(entry.stack.pop()) {
+                    "BeginWhileRule must have a parent stack frame"
+                }
+                break
+            }
+            if (r.captureIndices.isNotEmpty()) {
+                lineTokens.produce(entry.stack, r.captureIndices[0].start)
+                handleCaptures(
+                    grammar, lineText, currentIsFirstLine, entry.stack, lineTokens,
+                    entry.rule.whileCaptures, r.captureIndices
+                )
+                lineTokens.produce(entry.stack, r.captureIndices[0].end)
+                anchorPosition = r.captureIndices[0].end
+                if (r.captureIndices[0].end > currentLinePos) {
+                    currentLinePos = r.captureIndices[0].end
+                    currentIsFirstLine = false
+                }
+            }
+        } else {
+            // While condition failed — pop this rule and stop
+            currentStack = checkNotNull(entry.stack.pop()) {
+                "BeginWhileRule must have a parent stack frame"
+            }
+            break
+        }
+    }
+
+    return WhileCheckResult(currentStack, currentLinePos, anchorPosition, currentIsFirstLine)
+}

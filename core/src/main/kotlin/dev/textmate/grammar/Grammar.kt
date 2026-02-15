@@ -128,7 +128,8 @@ class Grammar(
             isFirstLine = isFirstLine,
             linePos = 0,
             stack = state,
-            lineTokens = lineTokens
+            lineTokens = lineTokens,
+            checkWhile = true
         )
 
         val tokens = lineTokens.getResult(resultStack, lineLength)
