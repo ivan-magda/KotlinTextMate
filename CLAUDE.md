@@ -20,7 +20,7 @@ KotlinTextMate is a Kotlin port of [vscode-textmate](https://github.com/microsof
 ## Module Structure
 
 - **core/** — JVM library: regex layer (Joni wrapper), grammar parsing, tokenizer, theme engine
-- **compose-ui/** — Android library: Compose UI bridge (depends on core)
+- **compose-ui/** — Android library: Compose UI bridge (depends on core). Public API: `CodeBlock` composable, `CodeBlockStyle`/`CodeBlockDefaults` (Material3 Defaults pattern), `rememberHighlightedCode` (escape hatch for custom rendering), `CodeHighlighter`
 - **sample-app/** — Android app: demo application (depends on core + compose-ui)
 
 ## Architecture
