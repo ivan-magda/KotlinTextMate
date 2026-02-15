@@ -53,5 +53,5 @@ Pending: Stage 7 (validation)
 - **Joni** (Java Oniguruma) for regex — works with byte offsets, requiring conversion to/from char offsets
 - **Gson** for JSON deserialization of grammar files
 - The `while` keyword in `RawRule` is mapped via `@SerializedName("while")` to `whilePattern`
-- Test resources include real VS Code grammars (JSON, Kotlin, Markdown) and themes (Dark+, Light+) in `core/src/test/resources/`
+- Grammar and theme files live in `shared-assets/` at the project root (single source of truth). Both `core` (test resources via `srcDir`) and `sample-app` (Android assets via `assets.srcDir`) point there. No duplication.
 - Reference source for porting: `https://github.com/microsoft/vscode-textmate` `src/` directory
