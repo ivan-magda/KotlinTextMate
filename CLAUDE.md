@@ -19,7 +19,7 @@ KotlinTextMate is a Kotlin port of [vscode-textmate](https://github.com/microsof
 
 ## Module Structure
 
-- **core/** — JVM library: regex layer (Joni wrapper), grammar parsing, tokenizer (WIP), theme engine (WIP)
+- **core/** — JVM library: regex layer (Joni wrapper), grammar parsing, tokenizer, theme engine
 - **compose-ui/** — Android library: Compose UI bridge (depends on core)
 - **sample-app/** — Android app: demo application (depends on core + compose-ui)
 
@@ -38,13 +38,14 @@ Compose UI (AnnotatedString) → Theme Engine → Tokenizer → Grammar → Rege
 - **grammar/raw/** — Data classes (`RawGrammar`, `RawRule`) and `GrammarReader` for parsing `.tmLanguage.json` files. Captures are `Map<String, RawRule>` (no separate `RawCapture` type). Rule IDs are assigned during compilation by `RuleFactory`, not during parsing.
 - **grammar/rule/** — Rule hierarchy and compilation: `sealed class Rule` (`CaptureRule`, `MatchRule`, `IncludeOnlyRule`, `BeginEndRule`, `BeginWhileRule`), `RuleFactory` (compiles `RawRule` → `Rule`), `RegExpSource`/`RegExpSourceList` (regex pattern management with anchor caching), `CompiledRule` (OnigScanner wrapper), `IRuleRegistry`/`IRuleFactoryHelper` interfaces. Implementation details are `internal`; Rule constructors are `internal` (only `RuleFactory` creates them). `IRuleRegistry.getRule()` returns nullable `Rule?` to handle circular references during compilation.
 - **grammar/tokenize/** — Tokenization engine and state: `Tokenizer.kt` (core `tokenizeString` loop), `LineTokens` (token accumulator), `StateStack`/`StateStackImpl` (parser state across lines), `ScopeStack`/`AttributedScopeStack` (scope name tracking).
-- **theme/**, **registry/** — Placeholder directories for upcoming stages
+- **theme/** — Theme engine: `Theme` (scope-to-style resolution via `match()`), `ThemeReader` (JSON/JSONC parsing, theme merging), `FontStyle`/`ResolvedStyle` (public API). Supports legacy (`settings`) and modern (`tokenColors`) VS Code theme formats.
+- **registry/** — Placeholder directory for upcoming stages
 
 ### Implementation stages (from plan-poc.md)
 
-Completed: Stage 0 (project setup), Stage 1 (Joni regex wrapper), Stage 2 (grammar parsing), Stage 3 (rule compilation), Stage 4 (tokenizer: StateStack, core loop, capture retokenization, BeginWhile checking, integration testing)
+Completed: Stage 0 (project setup), Stage 1 (Joni regex wrapper), Stage 2 (grammar parsing), Stage 3 (rule compilation), Stage 4 (tokenizer: StateStack, core loop, capture retokenization, BeginWhile checking, integration testing), Stage 5 (theme engine: parsing, scope matching, style resolution)
 Skipped: Injection grammars (out of scope for PoC — content inside injected grammars tokenized as plain text)
-Pending: Stage 5 (theme engine), Stage 6 (Compose UI), Stage 7 (validation)
+Pending: Stage 6 (Compose UI), Stage 7 (validation)
 
 ## Key Technical Details
 
