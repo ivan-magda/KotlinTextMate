@@ -33,7 +33,7 @@ class Theme internal constructor(
         if (scopes.isEmpty()) return defaultStyle
 
         val leafScope = scopes.last()
-        val parentStack = scopes.dropLast(1)
+        val parentStack = scopes.subList(0, scopes.size - 1)
 
         var foreground: Long? = null
         var background: Long? = null

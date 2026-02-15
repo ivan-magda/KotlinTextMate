@@ -46,6 +46,106 @@ class ThemeTest {
         assertFalse(matchesScope("keyword", "keyword.control"))
     }
 
+    // --- matchesParentScopes unit tests ---
+
+    @Test
+    fun `matchesParentScopes single parent matches`() {
+        val stack = listOf("source.kotlin", "meta.class")
+        assertTrue(matchesParentScopes(stack, listOf("source.kotlin")))
+        assertTrue(matchesParentScopes(stack, listOf("meta.class")))
+    }
+
+    @Test
+    fun `matchesParentScopes prefix match with dot`() {
+        val stack = listOf("source.kotlin", "meta.class.body")
+        assertTrue(matchesParentScopes(stack, listOf("meta.class")))
+        assertTrue(matchesParentScopes(stack, listOf("meta")))
+    }
+
+    @Test
+    fun `matchesParentScopes multiple parents innermost first`() {
+        val stack = listOf("source.kotlin", "meta.class", "meta.function")
+        // patterns are innermost-first: meta.function must be found first, then source
+        assertTrue(matchesParentScopes(stack, listOf("meta.function", "source.kotlin")))
+    }
+
+    @Test
+    fun `matchesParentScopes order matters`() {
+        val stack = listOf("source.kotlin", "meta.class")
+        // pattern wants meta.class innermost, then source — meta.class is at index 1 (innermost),
+        // source.kotlin at index 0 — should match
+        assertTrue(matchesParentScopes(stack, listOf("meta.class", "source.kotlin")))
+        // reversed: source.kotlin innermost — source is at index 0, meta.class at index 1,
+        // but scanning starts from lastIndex (1), so it finds source.kotlin? No — source is at 0.
+        // scan from index 1: stack[1]="meta.class" != "source.kotlin", stack[0]="source.kotlin" matches,
+        // then next pattern "meta.class" needs stackIndex < 0 → not found
+        assertFalse(matchesParentScopes(stack, listOf("source.kotlin", "meta.class")))
+    }
+
+    @Test
+    fun `matchesParentScopes not found`() {
+        val stack = listOf("source.kotlin", "meta.class")
+        assertFalse(matchesParentScopes(stack, listOf("meta.function")))
+    }
+
+    @Test
+    fun `matchesParentScopes partial match fails`() {
+        val stack = listOf("source.kotlin")
+        // two patterns but only one scope in stack
+        assertFalse(matchesParentScopes(stack, listOf("source.kotlin", "meta.class")))
+    }
+
+    @Test
+    fun `matchesParentScopes empty stack`() {
+        assertFalse(matchesParentScopes(emptyList(), listOf("source")))
+    }
+
+    @Test
+    fun `matchesParentScopes empty patterns`() {
+        assertTrue(matchesParentScopes(listOf("source.kotlin"), emptyList()))
+    }
+
+    // --- compareRules unit tests ---
+
+    @Test
+    fun `compareRules sorts by scope depth ascending`() {
+        val shallow = ParsedThemeRule("keyword", null, 0, null, null, null)
+        val deep = ParsedThemeRule("keyword.control", null, 1, null, null, null)
+        assertTrue(compareRules(shallow, deep) < 0)
+        assertTrue(compareRules(deep, shallow) > 0)
+    }
+
+    @Test
+    fun `compareRules same depth sorts by parent count ascending`() {
+        val noParent = ParsedThemeRule("keyword", null, 0, null, null, null)
+        val oneParent = ParsedThemeRule("keyword", listOf("source"), 1, null, null, null)
+        val twoParents = ParsedThemeRule("keyword", listOf("meta", "source"), 2, null, null, null)
+        assertTrue(compareRules(noParent, oneParent) < 0)
+        assertTrue(compareRules(oneParent, twoParents) < 0)
+    }
+
+    @Test
+    fun `compareRules same depth same parents sorts by index ascending`() {
+        val first = ParsedThemeRule("keyword", null, 0, null, null, null)
+        val second = ParsedThemeRule("keyword", null, 5, null, null, null)
+        assertTrue(compareRules(first, second) < 0)
+        assertTrue(compareRules(second, first) > 0)
+    }
+
+    @Test
+    fun `compareRules equal rules return zero`() {
+        val rule = ParsedThemeRule("keyword", null, 3, null, null, null)
+        assertEquals(0, compareRules(rule, rule))
+    }
+
+    @Test
+    fun `compareRules depth takes priority over parent count`() {
+        // deeper scope with no parents should sort after shallow scope with parents
+        val shallowWithParents = ParsedThemeRule("keyword", listOf("source", "meta"), 0, null, null, null)
+        val deepNoParents = ParsedThemeRule("keyword.control", null, 1, null, null, null)
+        assertTrue(compareRules(shallowWithParents, deepNoParents) < 0)
+    }
+
     // --- Theme.match tests with Dark+ ---
 
     @Test
