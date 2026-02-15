@@ -1,4 +1,6 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
+
+import dev.textmate.grammar.Token
 
 /**
  * Accumulates tokens during tokenization (non-binary path).

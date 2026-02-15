@@ -1,5 +1,11 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
 
+import dev.textmate.grammar.Grammar
+import dev.textmate.grammar.rule.BeginEndRule
+import dev.textmate.grammar.rule.BeginWhileRule
+import dev.textmate.grammar.rule.CaptureRule
+import dev.textmate.grammar.rule.MatchRule
+import dev.textmate.grammar.rule.RuleId
 import dev.textmate.regex.CaptureIndex
 import dev.textmate.regex.OnigString
 

@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.rule
 
 internal sealed class IncludeReference {
     data object BaseReference : IncludeReference()

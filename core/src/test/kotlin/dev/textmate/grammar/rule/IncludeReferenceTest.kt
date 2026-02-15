@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.rule
 
 import org.junit.Assert.*
 import org.junit.Test

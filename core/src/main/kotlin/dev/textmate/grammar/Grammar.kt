@@ -2,6 +2,17 @@ package dev.textmate.grammar
 
 import dev.textmate.grammar.raw.RawGrammar
 import dev.textmate.grammar.raw.RawRule
+import dev.textmate.grammar.rule.IRuleFactoryHelper
+import dev.textmate.grammar.rule.IRuleRegistryOnigLib
+import dev.textmate.grammar.rule.Rule
+import dev.textmate.grammar.rule.RuleFactory
+import dev.textmate.grammar.rule.RuleId
+import dev.textmate.grammar.tokenize.AttributedScopeStack
+import dev.textmate.grammar.tokenize.INITIAL
+import dev.textmate.grammar.tokenize.LineTokens
+import dev.textmate.grammar.tokenize.StateStack
+import dev.textmate.grammar.tokenize.StateStackImpl
+import dev.textmate.grammar.tokenize.tokenizeString
 import dev.textmate.regex.IOnigLib
 import dev.textmate.regex.OnigScanner
 import dev.textmate.regex.OnigString

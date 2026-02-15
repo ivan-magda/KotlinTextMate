@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
 
 import org.junit.Assert.*
 import org.junit.Test

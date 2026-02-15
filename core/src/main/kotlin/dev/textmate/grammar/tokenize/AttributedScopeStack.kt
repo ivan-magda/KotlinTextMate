@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
 
 /**
  * Linked list of scope names with token attributes.

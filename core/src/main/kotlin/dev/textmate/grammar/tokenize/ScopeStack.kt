@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
 
 /**
  * Immutable linked list of scope name strings.

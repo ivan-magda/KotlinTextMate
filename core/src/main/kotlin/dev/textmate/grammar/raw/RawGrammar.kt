@@ -21,7 +21,7 @@ data class RawGrammar(
  * a match rule, a begin/end rule, a begin/while rule, an include-only rule,
  * or just a patterns container.
  *
- * [id] is assigned during rule compilation by [dev.textmate.grammar.RuleFactory],
+ * [id] is assigned during rule compilation by [dev.textmate.grammar.rule.RuleFactory],
  * not during parsing. Because [id] is mutable, instances should not be placed
  * in hash-based collections (e.g. [HashSet], [HashMap] keys).
  */

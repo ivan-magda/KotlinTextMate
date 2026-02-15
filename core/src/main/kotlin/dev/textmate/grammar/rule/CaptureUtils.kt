@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.rule
 
 import dev.textmate.regex.CaptureIndex
 

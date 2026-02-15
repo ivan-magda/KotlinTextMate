@@ -11,7 +11,7 @@ import java.io.Reader
  * Reads TextMate grammars from `.tmLanguage.json` files.
  *
  * Rule IDs are not assigned during parsing — they are assigned later
- * during rule compilation by [dev.textmate.grammar.RuleFactory].
+ * during rule compilation by [dev.textmate.grammar.rule.RuleFactory].
  */
 object GrammarReader {
 

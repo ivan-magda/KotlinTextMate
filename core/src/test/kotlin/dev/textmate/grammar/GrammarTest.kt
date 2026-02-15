@@ -1,6 +1,7 @@
 package dev.textmate.grammar
 
 import dev.textmate.grammar.raw.GrammarReader
+import dev.textmate.grammar.tokenize.INITIAL
 import dev.textmate.regex.JoniOnigLib
 import org.junit.Assert.*
 import org.junit.Before

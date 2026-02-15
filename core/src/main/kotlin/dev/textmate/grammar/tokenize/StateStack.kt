@@ -1,4 +1,8 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
+
+import dev.textmate.grammar.rule.IRuleRegistry
+import dev.textmate.grammar.rule.Rule
+import dev.textmate.grammar.rule.RuleId
 
 /**
  * Public interface for the tokenizer state stack.

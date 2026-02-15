@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.rule
 
 private val BACK_REFERENCE_REGEX = Regex("""\\(\d+)""")
 

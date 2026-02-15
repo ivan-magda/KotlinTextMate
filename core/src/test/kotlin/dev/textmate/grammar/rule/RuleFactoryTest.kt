@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.rule
 
 import dev.textmate.grammar.raw.GrammarReader
 import dev.textmate.grammar.raw.RawGrammar

@@ -1,4 +1,4 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.rule
 
 @JvmInline
 value class RuleId(val id: Int) {

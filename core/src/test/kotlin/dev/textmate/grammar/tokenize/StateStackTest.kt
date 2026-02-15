@@ -1,5 +1,8 @@
-package dev.textmate.grammar
+package dev.textmate.grammar.tokenize
 
+import dev.textmate.grammar.rule.MatchRule
+import dev.textmate.grammar.rule.RuleId
+import dev.textmate.grammar.rule.TestRuleFactoryHelper
 import org.junit.Assert.*
 import org.junit.Test
 
