@@ -14,7 +14,8 @@ object ThemeReader {
     /**
      * Reads a single theme from an [InputStream].
      * Supports both modern (`tokenColors`) and legacy (`settings`) formats.
-     * Supports JSONC (JSON with comments).
+     *
+     * The caller is responsible for closing the [inputStream] after this method returns.
      */
     fun readTheme(inputStream: InputStream): Theme {
         return readTheme(listOf(inputStream))
@@ -23,6 +24,8 @@ object ThemeReader {
     /**
      * Reads and merges multiple themes (base + overlays) in order.
      * Earlier streams have lower priority; later streams override.
+     *
+     * The caller is responsible for closing the streams after this method returns.
      */
     fun readTheme(vararg inputStreams: InputStream): Theme {
         require(inputStreams.isNotEmpty()) { "At least one theme InputStream is required" }
@@ -92,51 +95,9 @@ object ThemeReader {
     }
 
     private fun parseRawTheme(inputStream: InputStream): RawTheme {
-        val text = InputStreamReader(inputStream, Charsets.UTF_8).readText()
-        val json = stripJsonc(text)
-        return gson.fromJson(json, RawTheme::class.java)
+        return gson.fromJson(InputStreamReader(inputStream, Charsets.UTF_8), RawTheme::class.java)
             ?: throw IllegalArgumentException("Failed to parse theme: empty or invalid JSON")
     }
-}
-
-/**
- * Strips JSONC extensions (single-line comments, block comments, trailing commas)
- * while preserving string contents.
- */
-internal fun stripJsonc(text: String): String {
-    val sb = StringBuilder(text.length)
-    var i = 0
-    var inString = false
-    while (i < text.length) {
-        val c = text[i]
-        if (inString) {
-            sb.append(c)
-            if (c == '\\' && i + 1 < text.length) {
-                sb.append(text[++i])
-            } else if (c == '"') {
-                inString = false
-            }
-        } else {
-            when {
-                c == '"' -> {
-                    inString = true
-                    sb.append(c)
-                }
-                c == '/' && i + 1 < text.length && text[i + 1] == '/' -> {
-                    while (i < text.length && text[i] != '\n') i++
-                    i-- // will be incremented at end of loop
-                }
-                c == '/' && i + 1 < text.length && text[i + 1] == '*' -> {
-                    i += 2
-                    while (i + 1 < text.length && !(text[i] == '*' && text[i + 1] == '/')) i++
-                    i++ // skip past '/'
-                }
-                else -> sb.append(c)
-            }
-        }
-        i++
-    }
-    return sb.toString().replace(Regex(",\\s*([\\]\\}])"), "$1")
 }
 
 internal fun parseScopeField(scope: Any?): List<String> {

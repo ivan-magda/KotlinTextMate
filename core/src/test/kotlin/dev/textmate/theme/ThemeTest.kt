@@ -85,17 +85,17 @@ class ThemeTest {
     }
 
     @Test
-    fun `parent scope rule matches variable other member in powershell`() {
-        val style = darkPlus.match(listOf("source.powershell", "meta.fn", "variable.other.member"))
-        // "source.powershell variable.other.member" rule → #DCDCAA
-        assertEquals(0xFFDCDCAA, style.foreground)
+    fun `parent scope rule matches entity name function in object literal`() {
+        // "meta.object-literal.key entity.name.function" → #9CDCFE
+        val style = darkPlus.match(listOf("source.js", "meta.object-literal.key", "entity.name.function"))
+        assertEquals(0xFF9CDCFE, style.foreground)
     }
 
     @Test
-    fun `variable without matching parent falls back to variable rule`() {
-        val style = darkPlus.match(listOf("source.kotlin", "variable.other.member"))
-        // "variable" rule from dark_plus → #9CDCFE
-        assertEquals(0xFF9CDCFE, style.foreground)
+    fun `entity name function without matching parent uses base rule`() {
+        // "entity.name.function" without parent → #DCDCAA
+        val style = darkPlus.match(listOf("source.js", "entity.name.function"))
+        assertEquals(0xFFDCDCAA, style.foreground)
     }
 
     @Test
