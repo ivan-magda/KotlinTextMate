@@ -1,0 +1,892 @@
+{
+  "grammar": "grammars/markdown.tmLanguage.json",
+  "generatedWith": "vscode-textmate@9.3.2",
+  "files": [
+    {
+      "source": "markdown/blocks.md",
+      "lines": [
+        {
+          "line": "# Heading 1",
+          "tokens": [
+            {
+              "value": "#",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.1.markdown",
+                "punctuation.definition.heading.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.1.markdown"
+              ]
+            },
+            {
+              "value": "Heading 1",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.1.markdown",
+                "entity.name.section.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "## Heading 2",
+          "tokens": [
+            {
+              "value": "##",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.2.markdown",
+                "punctuation.definition.heading.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.2.markdown"
+              ]
+            },
+            {
+              "value": "Heading 2",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.2.markdown",
+                "entity.name.section.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "---",
+          "tokens": [
+            {
+              "value": "---",
+              "scopes": [
+                "text.html.markdown",
+                "meta.separator.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "```",
+          "tokens": [
+            {
+              "value": "```",
+              "scopes": [
+                "text.html.markdown",
+                "markup.fenced_code.block.markdown",
+                "punctuation.definition.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "code block",
+          "tokens": [
+            {
+              "value": "code block",
+              "scopes": [
+                "text.html.markdown",
+                "markup.fenced_code.block.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "more code",
+          "tokens": [
+            {
+              "value": "more code",
+              "scopes": [
+                "text.html.markdown",
+                "markup.fenced_code.block.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "```",
+          "tokens": [
+            {
+              "value": "```",
+              "scopes": [
+                "text.html.markdown",
+                "markup.fenced_code.block.markdown",
+                "punctuation.definition.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    indented code",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.raw.block.markdown"
+              ]
+            },
+            {
+              "value": "indented code",
+              "scopes": [
+                "text.html.markdown",
+                "markup.raw.block.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    more indented",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.raw.block.markdown"
+              ]
+            },
+            {
+              "value": "more indented",
+              "scopes": [
+                "text.html.markdown",
+                "markup.raw.block.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "> Blockquote text",
+          "tokens": [
+            {
+              "value": ">",
+              "scopes": [
+                "text.html.markdown",
+                "markup.quote.markdown",
+                "punctuation.definition.quote.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.quote.markdown"
+              ]
+            },
+            {
+              "value": "Blockquote text",
+              "scopes": [
+                "text.html.markdown",
+                "markup.quote.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "> second line",
+          "tokens": [
+            {
+              "value": ">",
+              "scopes": [
+                "text.html.markdown",
+                "markup.quote.markdown",
+                "punctuation.definition.quote.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.quote.markdown"
+              ]
+            },
+            {
+              "value": "second line",
+              "scopes": [
+                "text.html.markdown",
+                "markup.quote.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "- Item 1",
+          "tokens": [
+            {
+              "value": "-",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "punctuation.definition.list.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown"
+              ]
+            },
+            {
+              "value": "Item 1",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "- Item 2",
+          "tokens": [
+            {
+              "value": "-",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "punctuation.definition.list.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown"
+              ]
+            },
+            {
+              "value": "Item 2",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  - Nested item",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown"
+              ]
+            },
+            {
+              "value": "-",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "markup.list.unnumbered.markdown",
+                "punctuation.definition.list.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "markup.list.unnumbered.markdown"
+              ]
+            },
+            {
+              "value": "Nested item",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "markup.list.unnumbered.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.unnumbered.markdown",
+                "markup.list.unnumbered.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "1. First",
+          "tokens": [
+            {
+              "value": "1.",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown",
+                "punctuation.definition.list.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown"
+              ]
+            },
+            {
+              "value": "First",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "2. Second",
+          "tokens": [
+            {
+              "value": "2.",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown",
+                "punctuation.definition.list.begin.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown"
+              ]
+            },
+            {
+              "value": "Second",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown",
+                "markup.list.numbered.markdown"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "markdown/inline.md",
+      "lines": [
+        {
+          "line": "# Inline formatting",
+          "tokens": [
+            {
+              "value": "#",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.1.markdown",
+                "punctuation.definition.heading.markdown"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.1.markdown"
+              ]
+            },
+            {
+              "value": "Inline formatting",
+              "scopes": [
+                "text.html.markdown",
+                "markup.heading.markdown",
+                "heading.1.markdown",
+                "entity.name.section.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "Some **bold** and *italic* text.",
+          "tokens": [
+            {
+              "value": "Some ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            },
+            {
+              "value": "**",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "punctuation.definition.bold.markdown"
+              ]
+            },
+            {
+              "value": "bold",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown"
+              ]
+            },
+            {
+              "value": "**",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "punctuation.definition.bold.markdown"
+              ]
+            },
+            {
+              "value": " and ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            },
+            {
+              "value": "*",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.italic.markdown",
+                "punctuation.definition.italic.markdown"
+              ]
+            },
+            {
+              "value": "italic",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.italic.markdown"
+              ]
+            },
+            {
+              "value": "*",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.italic.markdown",
+                "punctuation.definition.italic.markdown"
+              ]
+            },
+            {
+              "value": " text.",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "A `code span` in a sentence.",
+          "tokens": [
+            {
+              "value": "A ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            },
+            {
+              "value": "`",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.inline.raw.string.markdown",
+                "punctuation.definition.raw.markdown"
+              ]
+            },
+            {
+              "value": "code span",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.inline.raw.string.markdown"
+              ]
+            },
+            {
+              "value": "`",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.inline.raw.string.markdown",
+                "punctuation.definition.raw.markdown"
+              ]
+            },
+            {
+              "value": " in a sentence.",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "A [link](http://example.com) and an ![image](img.png).",
+          "tokens": [
+            {
+              "value": "A ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.link.inline.markdown",
+                "punctuation.definition.link.title.begin.markdown"
+              ]
+            },
+            {
+              "value": "link",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.link.inline.markdown",
+                "string.other.link.title.markdown"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.link.inline.markdown",
+                "punctuation.definition.link.title.end.markdown"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.link.inline.markdown",
+                "punctuation.definition.metadata.markdown"
+              ]
+            },
+            {
+              "value": "http://example.com",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.link.inline.markdown",
+                "markup.underline.link.markdown"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.link.inline.markdown",
+                "punctuation.definition.metadata.markdown"
+              ]
+            },
+            {
+              "value": " and an ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            },
+            {
+              "value": "![",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.image.inline.markdown",
+                "punctuation.definition.link.description.begin.markdown"
+              ]
+            },
+            {
+              "value": "image",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.image.inline.markdown",
+                "string.other.link.description.markdown"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.image.inline.markdown",
+                "punctuation.definition.link.description.end.markdown"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.image.inline.markdown",
+                "punctuation.definition.metadata.markdown"
+              ]
+            },
+            {
+              "value": "img.png",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.image.inline.markdown",
+                "markup.underline.link.image.markdown"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "meta.image.inline.markdown",
+                "punctuation.definition.metadata.markdown"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "Mixed **bold and *italic*** together.",
+          "tokens": [
+            {
+              "value": "Mixed ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            },
+            {
+              "value": "**",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "punctuation.definition.bold.markdown"
+              ]
+            },
+            {
+              "value": "bold and ",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown"
+              ]
+            },
+            {
+              "value": "*",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "markup.italic.markdown",
+                "punctuation.definition.italic.markdown"
+              ]
+            },
+            {
+              "value": "italic",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "markup.italic.markdown"
+              ]
+            },
+            {
+              "value": "*",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "markup.italic.markdown",
+                "punctuation.definition.italic.markdown"
+              ]
+            },
+            {
+              "value": "**",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown",
+                "markup.bold.markdown",
+                "punctuation.definition.bold.markdown"
+              ]
+            },
+            {
+              "value": " together.",
+              "scopes": [
+                "text.html.markdown",
+                "meta.paragraph.markdown"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "text.html.markdown"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

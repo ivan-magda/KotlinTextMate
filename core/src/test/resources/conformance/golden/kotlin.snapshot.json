@@ -1,0 +1,1827 @@
+{
+  "grammar": "grammars/kotlin.tmLanguage.json",
+  "generatedWith": "vscode-textmate@9.3.2",
+  "files": [
+    {
+      "source": "kotlin/functions.kt",
+      "lines": [
+        {
+          "line": "package example",
+          "tokens": [
+            {
+              "value": "package",
+              "scopes": [
+                "source.kotlin",
+                "meta.package.kotlin",
+                "keyword.hard.package.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin",
+                "meta.package.kotlin"
+              ]
+            },
+            {
+              "value": "example",
+              "scopes": [
+                "source.kotlin",
+                "meta.package.kotlin",
+                "entity.name.package.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "import kotlin.collections.List",
+          "tokens": [
+            {
+              "value": "import",
+              "scopes": [
+                "source.kotlin",
+                "meta.import.kotlin",
+                "keyword.soft.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin",
+                "meta.import.kotlin"
+              ]
+            },
+            {
+              "value": "kotlin.collections.List",
+              "scopes": [
+                "source.kotlin",
+                "meta.import.kotlin",
+                "entity.name.package.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "fun main(args: Array<String>) {",
+          "tokens": [
+            {
+              "value": "fun",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.fun.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "main",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.declaration.kotlin"
+              ]
+            },
+            {
+              "value": "(args",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ": ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "Array",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": "<",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "String",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": ">",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ") {",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val message = \"Hello, World!\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "message ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "Hello, World!",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    println(message)",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "println",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.call.kotlin"
+              ]
+            },
+            {
+              "value": "(message)",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "fun <T : Comparable<T>> sort(list: List<T>): List<T> {",
+          "tokens": [
+            {
+              "value": "fun",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.fun.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "<",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "T",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": " : ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "Comparable",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": "<",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "T",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": ">>",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "sort",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.declaration.kotlin"
+              ]
+            },
+            {
+              "value": "(list",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ": ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "List",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": "<",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "T",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": ">",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ": ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "List",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": "<",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "T",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": "> ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    return list.sorted()",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "return",
+              "scopes": [
+                "source.kotlin",
+                "keyword.control.kotlin"
+              ]
+            },
+            {
+              "value": " list",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "sorted",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.call.kotlin"
+              ]
+            },
+            {
+              "value": "()",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "class Calculator {",
+          "tokens": [
+            {
+              "value": "class",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.class.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "Calculator",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.class.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    fun add(a: Int, b: Int): Int = a + b",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "fun",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.fun.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "add",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.declaration.kotlin"
+              ]
+            },
+            {
+              "value": "(a",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ": ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "Int",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": ", b",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ": ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "Int",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": ": ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "Int",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " a ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "+",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.arithmetic.kotlin"
+              ]
+            },
+            {
+              "value": " b",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    companion object {",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "companion",
+              "scopes": [
+                "source.kotlin",
+                "storage.modifier.other.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "object",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.object.kotlin"
+              ]
+            },
+            {
+              "value": " {",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "        const val PI = 3.14159",
+          "tokens": [
+            {
+              "value": "        ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "const",
+              "scopes": [
+                "source.kotlin",
+                "storage.modifier.other.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "PI ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "3.14159",
+              "scopes": [
+                "source.kotlin",
+                "constant.numeric.decimal.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    }",
+          "tokens": [
+            {
+              "value": "    }",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "annotation class MyAnnotation",
+          "tokens": [
+            {
+              "value": "annotation",
+              "scopes": [
+                "source.kotlin",
+                "storage.modifier.other.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "class",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.class.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "MyAnnotation",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.class.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "@MyAnnotation",
+          "tokens": [
+            {
+              "value": "@MyAnnotation",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.type.annotation.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "fun annotated() {",
+          "tokens": [
+            {
+              "value": "fun",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.fun.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "annotated",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.declaration.kotlin"
+              ]
+            },
+            {
+              "value": "() {",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val x = when (true) {",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "x ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "when",
+              "scopes": [
+                "source.kotlin",
+                "keyword.control.kotlin"
+              ]
+            },
+            {
+              "value": " (",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "true",
+              "scopes": [
+                "source.kotlin",
+                "constant.language.boolean.kotlin"
+              ]
+            },
+            {
+              "value": ") {",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "        true -> 1",
+          "tokens": [
+            {
+              "value": "        ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "true",
+              "scopes": [
+                "source.kotlin",
+                "constant.language.boolean.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "->",
+              "scopes": [
+                "source.kotlin",
+                "storage.type.function.arrow.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "1",
+              "scopes": [
+                "source.kotlin",
+                "constant.numeric.decimal.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "        false -> 0",
+          "tokens": [
+            {
+              "value": "        ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "false",
+              "scopes": [
+                "source.kotlin",
+                "constant.language.boolean.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "->",
+              "scopes": [
+                "source.kotlin",
+                "storage.type.function.arrow.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "0",
+              "scopes": [
+                "source.kotlin",
+                "constant.numeric.decimal.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    }",
+          "tokens": [
+            {
+              "value": "    }",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": "kotlin/strings.kt",
+      "lines": [
+        {
+          "line": "package example",
+          "tokens": [
+            {
+              "value": "package",
+              "scopes": [
+                "source.kotlin",
+                "meta.package.kotlin",
+                "keyword.hard.package.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin",
+                "meta.package.kotlin"
+              ]
+            },
+            {
+              "value": "example",
+              "scopes": [
+                "source.kotlin",
+                "meta.package.kotlin",
+                "entity.name.package.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "fun strings() {",
+          "tokens": [
+            {
+              "value": "fun",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.fun.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "strings",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.declaration.kotlin"
+              ]
+            },
+            {
+              "value": "() {",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val simple = \"hello\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "simple ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "hello",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val escaped = \"line1\\nline2\\ttab\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "escaped ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "line1",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\n",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "line2",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\t",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "tab",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val interpolated = \"Hello, $simple!\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "interpolated ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "Hello, ",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "$simple",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "variable.string-escape.kotlin"
+              ]
+            },
+            {
+              "value": "!",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val expression = \"result: ${1 + 2}\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "expression ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "result: ",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "${",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin",
+                "punctuation.definition.template-expression.begin"
+              ]
+            },
+            {
+              "value": "1",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin",
+                "constant.numeric.decimal.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin"
+              ]
+            },
+            {
+              "value": "+",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin",
+                "keyword.operator.arithmetic.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin"
+              ]
+            },
+            {
+              "value": "2",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin",
+                "constant.numeric.decimal.kotlin"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "meta.template.expression.kotlin",
+                "punctuation.definition.template-expression.end"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val multiline = \"\"\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "multiline ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"\"\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "        first line",
+          "tokens": [
+            {
+              "value": "        first line",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "        second line",
+          "tokens": [
+            {
+              "value": "        second line",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    \"\"\".trimIndent()",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\"\"\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "trimIndent",
+              "scopes": [
+                "source.kotlin",
+                "entity.name.function.call.kotlin"
+              ]
+            },
+            {
+              "value": "()",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val empty = \"\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "empty ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    val unicode = \"\\u0048\\u0065\\u006C\\u006C\\u006F\"",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "val",
+              "scopes": [
+                "source.kotlin",
+                "keyword.hard.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "unicode ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.kotlin",
+                "keyword.operator.assignment.kotlin"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\u",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "0048",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\u",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "0065",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\u",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "006C",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\u",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "006C",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\\u",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin",
+                "constant.character.escape.kotlin"
+              ]
+            },
+            {
+              "value": "006F",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.kotlin",
+                "string.quoted.double.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.kotlin"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

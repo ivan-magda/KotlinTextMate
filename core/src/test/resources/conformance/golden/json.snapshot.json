@@ -1,0 +1,1101 @@
+{
+  "grammar": "grammars/JSON.tmLanguage.json",
+  "generatedWith": "vscode-textmate@9.3.2",
+  "files": [
+    {
+      "source": "json/mixed-values.json",
+      "lines": [
+        {
+          "line": "{",
+          "tokens": [
+            {
+              "value": "{",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "punctuation.definition.dictionary.begin.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  \"name\": \"test\",",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "name",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.begin.json"
+              ]
+            },
+            {
+              "value": "test",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.end.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  \"version\": 42,",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "version",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "42",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "constant.numeric.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  \"active\": true,",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "active",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "true",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "constant.language.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  \"tags\": [\"alpha\", \"beta\"],",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "tags",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.definition.array.begin.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.begin.json"
+              ]
+            },
+            {
+              "value": "alpha",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.end.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.separator.array.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.begin.json"
+              ]
+            },
+            {
+              "value": "beta",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.end.json"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.definition.array.end.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  \"metadata\": null,",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "metadata",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "null",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "constant.language.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  \"nested\": {",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "nested",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "punctuation.definition.dictionary.begin.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    \"key\": \"value with \\\"escapes\\\" and \\\\backslash\",",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "key",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.begin.json"
+              ]
+            },
+            {
+              "value": "value with ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\\\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "constant.character.escape.json"
+              ]
+            },
+            {
+              "value": "escapes",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\\\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "constant.character.escape.json"
+              ]
+            },
+            {
+              "value": " and ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\\\\",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "constant.character.escape.json"
+              ]
+            },
+            {
+              "value": "backslash",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "string.quoted.double.json",
+                "punctuation.definition.string.end.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    \"numbers\": [1, -2.5, 3e10],",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "numbers",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.definition.array.begin.json"
+              ]
+            },
+            {
+              "value": "1",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "constant.numeric.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.separator.array.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json"
+              ]
+            },
+            {
+              "value": "-2.5",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "constant.numeric.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.separator.array.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json"
+              ]
+            },
+            {
+              "value": "3e10",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "constant.numeric.json"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.array.json",
+                "punctuation.definition.array.end.json"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.pair.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    \"empty\": {}",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.begin.json"
+              ]
+            },
+            {
+              "value": "empty",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json"
+              ]
+            },
+            {
+              "value": "\"",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "string.json",
+                "support.type.property-name.json",
+                "punctuation.support.type.property-name.end.json"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "punctuation.separator.dictionary.key-value.json"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "punctuation.definition.dictionary.begin.json"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "punctuation.definition.dictionary.end.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "  }",
+          "tokens": [
+            {
+              "value": "  ",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "meta.structure.dictionary.value.json",
+                "meta.structure.dictionary.json",
+                "punctuation.definition.dictionary.end.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.json",
+                "meta.structure.dictionary.json",
+                "punctuation.definition.dictionary.end.json"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.json"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

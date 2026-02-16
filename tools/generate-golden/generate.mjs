@@ -4,10 +4,9 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
 import { createRequire } from "module";
 import { join, relative } from "path";
-import * as vsctm from "vscode-textmate";
-import * as oniguruma from "vscode-oniguruma";
-
 const require = createRequire(import.meta.url);
+const vsctm = require("vscode-textmate");
+const oniguruma = require("vscode-oniguruma");
 const wasmBin = readFileSync(
   require.resolve("vscode-oniguruma/release/onig.wasm"),
 );
