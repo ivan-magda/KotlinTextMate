@@ -225,7 +225,19 @@ class JoniOnigScannerTest {
         assertNull(scanner.findNextMatchSync(str, 0))
     }
 
-    // Test 15: Empty patterns list
+    // Test 15: Invalid pattern among valid patterns preserves index mapping
+    @Test
+    fun `invalid pattern among valid patterns preserves index mapping`() {
+        val scanner = lib.createOnigScanner(listOf("[invalid", "\\bfun\\b"))
+        val str = lib.createOnigString("fun main()")
+        val result = scanner.findNextMatchSync(str, 0)
+        assertNotNull(result)
+        assertEquals(1, result!!.index)
+        assertEquals(0, result.captureIndices[0].start)
+        assertEquals(3, result.captureIndices[0].end)
+    }
+
+    // Test 16: Empty patterns list
     @Test
     fun `empty patterns list returns no match`() {
         val scanner = lib.createOnigScanner(emptyList())

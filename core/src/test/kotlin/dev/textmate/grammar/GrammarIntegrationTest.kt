@@ -327,5 +327,13 @@ class GrammarIntegrationTest {
         // Italic
         assertTrue("Should have italic scope",
             results[2].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.italic") } })
+
+        // Blockquote
+        assertTrue("Should have quote scope",
+            results[4].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.quote") } })
+
+        // List item
+        assertTrue("Should have list scope",
+            results[6].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.list") } })
     }
 }

@@ -7,7 +7,7 @@ import org.joni.Regex
 import org.joni.Region
 import org.joni.Syntax
 import org.joni.WarnCallback
-import org.joni.exception.SyntaxException
+import org.joni.exception.JOniException
 
 class JoniOnigLib : IOnigLib {
 
@@ -91,7 +91,7 @@ internal class JoniOnigScanner(patterns: List<String>) : OnigScanner {
                     Syntax.DEFAULT,
                     WarnCallback.NONE
                 )
-            } catch (_: SyntaxException) {
+            } catch (_: JOniException) {
                 NEVER_MATCH_REGEX
             }
         }

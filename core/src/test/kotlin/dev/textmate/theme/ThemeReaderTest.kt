@@ -48,7 +48,7 @@ class ThemeReaderTest {
     }
 
     @Test
-    fun `Light VS falls back to black on white`() {
+    fun `Light VS default foreground and background`() {
         val theme = loadTheme("themes/light_vs.json")
         assertEquals(0xFF000000, theme.defaultStyle.foreground)
         assertEquals(0xFFFFFFFFL, theme.defaultStyle.background)
