@@ -43,7 +43,6 @@ object ThemeReader {
             val raw = parseRawTheme(stream)
             if (raw.name != null) themeName = raw.name
 
-            // Modern themes store editor defaults in `colors` section
             raw.colors?.get("editor.foreground")?.let { parseHexColor(it) }?.let { editorForeground = it }
             raw.colors?.get("editor.background")?.let { parseHexColor(it) }?.let { editorBackground = it }
 
@@ -123,6 +122,7 @@ internal fun parseHexColor(hex: String): Long? {
             val rgb = digits.toLongOrNull(16) ?: return null
             0xFF000000L or rgb
         }
+
         8 -> {
             val rrggbbaa = digits.toLongOrNull(16) ?: return null
             val rr = (rrggbbaa shr 24) and 0xFF
@@ -131,6 +131,7 @@ internal fun parseHexColor(hex: String): Long? {
             val aa = rrggbbaa and 0xFF
             (aa shl 24) or (rr shl 16) or (gg shl 8) or bb
         }
+
         else -> null
     }
 }
