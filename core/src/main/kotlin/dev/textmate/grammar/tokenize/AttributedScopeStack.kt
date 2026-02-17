@@ -4,7 +4,7 @@ package dev.textmate.grammar.tokenize
  * Linked list of scope names with token attributes.
  * Port of `AttributedScopeStack` from vscode-textmate `grammar.ts`.
  *
- * Stage 4a stub: tracks scope names only. Theme-resolved attributes deferred to Stage 5.
+ * Tracks scope names only — theme resolution is done externally via [dev.textmate.theme.Theme.match].
  */
 class AttributedScopeStack private constructor(
     val parent: AttributedScopeStack?,
@@ -50,7 +50,7 @@ class AttributedScopeStack private constructor(
     /**
      * Push a scope path onto this stack.
      * [scopePath] may be null (returns this), a single scope, or space-separated scopes.
-     * [grammar] is a placeholder (Any?) for Stage 4a; becomes Grammar in Stage 5.
+     * [grammar] is unused — kept for API compatibility with vscode-textmate.
      */
     fun pushAttributed(scopePath: String?, grammar: Any?): AttributedScopeStack {
         if (scopePath == null) return this
@@ -69,7 +69,7 @@ class AttributedScopeStack private constructor(
 
     private fun pushSingle(scopeName: String): AttributedScopeStack {
         val newPath = this.scopePath.push(scopeName)
-        // Stage 4a: no theme resolution, carry forward parent attributes
+        // No per-scope theme resolution; carry forward parent attributes
         return AttributedScopeStack(this, newPath, tokenAttributes)
     }
 
