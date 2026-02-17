@@ -1,6 +1,11 @@
 package dev.textmate.grammar.raw
 
+import com.google.gson.TypeAdapter
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import com.google.gson.stream.JsonReader
+import com.google.gson.stream.JsonToken
+import com.google.gson.stream.JsonWriter
 
 /**
  * Top-level TextMate grammar, as loaded from a .tmLanguage.json file.
@@ -41,6 +46,23 @@ data class RawRule(
     val whileCaptures: Map<String, RawRule>? = null,
     val patterns: List<RawRule>? = null,
     val repository: Map<String, RawRule>? = null,
+    @JsonAdapter(BooleanOrIntAdapter::class)
     val applyEndPatternLast: Int? = null,
     val comment: String? = null
 )
+
+/** Deserializes both JSON booleans (`true`/`false`) and integers (`1`/`0`) to `Int?`. */
+internal class BooleanOrIntAdapter : TypeAdapter<Int?>() {
+    override fun write(out: JsonWriter, value: Int?) {
+        if (value == null) out.nullValue() else out.value(value)
+    }
+
+    override fun read(input: JsonReader): Int? {
+        return when (input.peek()) {
+            JsonToken.NULL -> { input.nextNull(); null }
+            JsonToken.BOOLEAN -> if (input.nextBoolean()) 1 else 0
+            JsonToken.NUMBER -> input.nextInt()
+            else -> { input.skipValue(); null }
+        }
+    }
+}
