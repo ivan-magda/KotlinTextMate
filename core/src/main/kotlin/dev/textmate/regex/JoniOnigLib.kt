@@ -14,7 +14,7 @@ class JoniOnigLib : IOnigLib {
     private val _sentinelPatterns = mutableSetOf<String>()
 
     /** Number of unique regex patterns that fell back to the never-matching sentinel. */
-    val sentinelPatternCount: Int get() = _sentinelPatterns.size
+    internal val sentinelPatternCount: Int get() = _sentinelPatterns.size
 
     override fun createOnigScanner(patterns: List<String>): OnigScanner {
         return JoniOnigScanner(patterns) { pattern -> _sentinelPatterns.add(pattern) }

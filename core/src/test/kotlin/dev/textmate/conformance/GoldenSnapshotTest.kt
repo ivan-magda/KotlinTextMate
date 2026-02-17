@@ -1,6 +1,5 @@
 package dev.textmate.conformance
 
-import dev.textmate.grammar.tokenize.StateStack
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -29,24 +28,9 @@ class GoldenSnapshotTest(
         val snapshot = ConformanceTestSupport.loadGoldenSnapshot(snapshotResource)
 
         for (file in snapshot.files) {
-            var state: StateStack? = null
-
-            for ((lineIndex, expectedLine) in file.lines.withIndex()) {
-                val result = grammar.tokenizeLine(expectedLine.line, state)
-                val actual = ConformanceTestSupport.actualToExpected(
-                    expectedLine.line, result.tokens
-                )
-
-                ConformanceTestSupport.assertTokensMatch(
-                    lineText = expectedLine.line,
-                    lineIndex = lineIndex,
-                    expected = expectedLine.tokens,
-                    actual = actual,
-                    testDesc = "$label/${file.source}"
-                )
-
-                state = result.ruleStack
-            }
+            ConformanceTestSupport.assertGrammarTokenization(
+                grammar, file.lines, "$label/${file.source}"
+            )
         }
     }
 }

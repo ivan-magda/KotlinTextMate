@@ -1,6 +1,6 @@
 package dev.textmate.conformance
 
-import dev.textmate.grammar.tokenize.StateStack
+import org.junit.Assert.fail
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized
@@ -12,35 +12,34 @@ class FirstMateConformanceTest(
 ) {
 
     companion object {
-        private val SKIP_INJECTIONS = setOf("TEST #47", "TEST #49")
         private const val FIXTURES_BASE = "conformance/first-mate/"
+        private val KNOWN_DIVERGENCES = emptySet<String>()
+
+        private val allTests by lazy {
+            ConformanceTestSupport.loadFirstMateTests("${FIXTURES_BASE}tests.json")
+        }
 
         @JvmStatic
         @Parameterized.Parameters(name = "{0}")
         fun loadTestCases(): List<Array<Any>> {
-            val allTests = ConformanceTestSupport.loadFirstMateTests(
-                "${FIXTURES_BASE}tests.json"
-            )
             return allTests
-                .filter { it.desc !in SKIP_INJECTIONS }
                 .filter { it.grammarInjections.isNullOrEmpty() }
                 .filter { canRun(it) }
-                .map { arrayOf(it.desc as Any, it as Any) }
+                .map { arrayOf(it.desc, it) }
         }
 
-        // Lazily built map: scopeName -> resource path (only for available grammars)
         private val scopeToResource: Map<String, String> by lazy {
             val cl = javaClass.classLoader
-            val allPaths = ConformanceTestSupport.loadFirstMateTests("${FIXTURES_BASE}tests.json")
+            allTests
                 .flatMap { it.grammars }
                 .distinct()
-            allPaths.mapNotNull { path ->
-                val resource = "$FIXTURES_BASE$path"
-                if (cl.getResource(resource) != null) {
-                    val raw = ConformanceTestSupport.loadRawGrammar(resource)
-                    raw.scopeName to resource
-                } else null
-            }.toMap()
+                .mapNotNull { path ->
+                    val resource = "$FIXTURES_BASE$path"
+                    if (cl.getResource(resource) != null) {
+                        val raw = ConformanceTestSupport.loadRawGrammar(resource)
+                        raw.scopeName to resource
+                    } else null
+                }.toMap()
         }
 
         private fun canRun(test: FirstMateTestCase): Boolean {
@@ -55,44 +54,41 @@ class FirstMateConformanceTest(
     @Test
     fun `tokens match reference`() {
         val grammar = loadGrammarForTest()
-        var state: StateStack? = null
 
-        for ((lineIndex, expectedLine) in testCase.lines.withIndex()) {
-            val result = grammar.tokenizeLine(expectedLine.line, state)
-            val actual = ConformanceTestSupport.actualToExpected(
-                expectedLine.line, result.tokens
+        if (desc in KNOWN_DIVERGENCES) {
+            try {
+                ConformanceTestSupport.assertGrammarTokenization(
+                    grammar, testCase.lines, desc
+                )
+            } catch (_: AssertionError) {
+                return // Expected divergence
+            }
+            fail("$desc passed but is in KNOWN_DIVERGENCES — remove it from the set")
+        } else {
+            ConformanceTestSupport.assertGrammarTokenization(
+                grammar, testCase.lines, desc
             )
-
-            ConformanceTestSupport.assertTokensMatch(
-                lineText = expectedLine.line,
-                lineIndex = lineIndex,
-                expected = expectedLine.tokens,
-                actual = actual,
-                testDesc = desc
-            )
-
-            state = result.ruleStack
         }
     }
 
     private fun loadGrammarForTest(): dev.textmate.grammar.Grammar {
+        var targetScopeFromPath: String? = null
         val rawGrammars = testCase.grammars
             .filter { path ->
                 javaClass.classLoader.getResource("${FIXTURES_BASE}$path") != null
             }
             .associate { path ->
                 val raw = ConformanceTestSupport.loadRawGrammar("$FIXTURES_BASE$path")
+                if (path == testCase.grammarPath) {
+                    targetScopeFromPath = raw.scopeName
+                }
                 raw.scopeName to raw
             }
 
         val targetScope = when {
             testCase.grammarScopeName != null -> testCase.grammarScopeName
-            testCase.grammarPath != null -> {
-                val raw = ConformanceTestSupport.loadRawGrammar(
-                    "$FIXTURES_BASE${testCase.grammarPath}"
-                )
-                raw.scopeName
-            }
+            testCase.grammarPath != null -> targetScopeFromPath
+                ?: error("Grammar for path '${testCase.grammarPath}' not found")
             else -> error("Test '${testCase.desc}' has neither grammarPath nor grammarScopeName")
         }
 

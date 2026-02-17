@@ -6,7 +6,10 @@ import dev.textmate.grammar.Grammar
 import dev.textmate.grammar.Token
 import dev.textmate.grammar.raw.GrammarReader
 import dev.textmate.grammar.raw.RawGrammar
+import dev.textmate.grammar.tokenize.StateStack
 import dev.textmate.regex.JoniOnigLib
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Assert.fail
 import java.io.InputStreamReader
 
@@ -81,12 +84,10 @@ object ConformanceTestSupport {
     // --- Token conversion ---
 
     fun actualToExpected(line: String, tokens: List<Token>): List<ExpectedToken> {
-        return tokens.mapNotNull { token ->
+        return tokens.map { token ->
             val start = token.startIndex.coerceAtMost(line.length)
             val end = token.endIndex.coerceAtMost(line.length)
-            val value = line.substring(start, end)
-            if (value.isEmpty() && line.isNotEmpty()) null
-            else ExpectedToken(value, token.scopes)
+            ExpectedToken(line.substring(start, end), token.scopes)
         }
     }
 
@@ -143,5 +144,52 @@ object ConformanceTestSupport {
         }
 
         fail(sb.toString())
+    }
+
+    fun assertTilingInvariant(
+        lineText: String,
+        lineIndex: Int,
+        tokens: List<Token>,
+        testDesc: String
+    ) {
+        if (tokens.isEmpty()) return
+        assertEquals(
+            "Tiling: first token should start at 0 in '$testDesc', line $lineIndex",
+            0, tokens.first().startIndex
+        )
+        for (i in 1 until tokens.size) {
+            assertEquals(
+                "Tiling: gap/overlap between token[${i - 1}] and token[$i] in '$testDesc', line $lineIndex",
+                tokens[i - 1].endIndex, tokens[i].startIndex
+            )
+        }
+        assertTrue(
+            "Tiling: last token should end at or past line length in '$testDesc', line $lineIndex",
+            tokens.last().endIndex >= lineText.length
+        )
+    }
+
+    // --- Tokenization loop ---
+
+    fun assertGrammarTokenization(
+        grammar: Grammar,
+        expectedLines: List<ExpectedLine>,
+        testDesc: String,
+        initialState: StateStack? = null
+    ) {
+        var state = initialState
+        for ((lineIndex, expectedLine) in expectedLines.withIndex()) {
+            val result = grammar.tokenizeLine(expectedLine.line, state)
+            assertTilingInvariant(expectedLine.line, lineIndex, result.tokens, testDesc)
+            val actual = actualToExpected(expectedLine.line, result.tokens)
+            assertTokensMatch(
+                lineText = expectedLine.line,
+                lineIndex = lineIndex,
+                expected = expectedLine.tokens,
+                actual = actual,
+                testDesc = testDesc
+            )
+            state = result.ruleStack
+        }
     }
 }

@@ -40,8 +40,9 @@ class SentinelPatternTest {
         val grammar = dev.textmate.grammar.Grammar(
             rawGrammar.scopeName, rawGrammar, onigLib
         )
-        // Force compilation of all patterns by tokenizing representative text.
-        // Empty string only compiles root patterns; we need inline patterns too.
+        // Tokenize representative text to trigger lazy pattern compilation.
+        // Only rules actually entered get their sub-patterns compiled, so deeply
+        // nested rules not exercised here won't be counted.
         val lines = listOf(
             "# heading",
             "some **bold** and ~~strike~~ text",

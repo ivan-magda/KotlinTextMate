@@ -1,4 +1,5 @@
 // Generates golden tokenization snapshots from the canonical vscode-textmate.
+// Requires Node.js >= 21.2 (for import.meta.dirname).
 // Usage: cd tools/generate-golden && npm install && npm run generate
 
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "fs";
