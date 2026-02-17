@@ -69,7 +69,7 @@ for (const [lang, config] of Object.entries(GRAMMARS)) {
 
   const grammar = await registry.addGrammar(rawGrammar);
   const corpusDir = join(CORPUS_DIR, lang);
-  const corpusFiles = readdirSync(corpusDir).filter((f) => !f.startsWith("."));
+  const corpusFiles = readdirSync(corpusDir).filter((f) => !f.startsWith(".")).sort();
 
   const files = [];
   let totalLines = 0;
