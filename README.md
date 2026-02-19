@@ -86,15 +86,6 @@ for (line in code.lines()) {
 
 Competitive with [vscode-textmate](https://github.com/microsoft/vscode-textmate) (~5.6–18.3k lines/sec on jQuery) and [syntect](https://github.com/trishume/syntect) (~13k). Details and methodology in [BENCHMARK.md](docs/BENCHMARK.md).
 
-## Roadmap
-
-- [ ] Kotlin Multiplatform — iOS via Oniguruma C interop
-- [ ] Compose Multiplatform UI
-- [ ] Injection grammars (embedded languages)
-- [ ] Grammar registry (multi-grammar loading, cross-grammar includes)
-- [ ] Incremental tokenization
-- [ ] Maven Central publishing
-
 ## Acknowledgments
 
 - [vscode-textmate](https://github.com/microsoft/vscode-textmate) — the TypeScript implementation this project ports
