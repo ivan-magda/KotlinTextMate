@@ -1,0 +1,3383 @@
+{
+  "grammar": "grammars/JavaScript.tmLanguage.json",
+  "generatedWith": "vscode-textmate@9.3.2",
+  "files": [
+    {
+      "source": "javascript/test.js",
+      "lines": [
+        {
+          "line": "/*---------------------------------------------------------------------------------------------",
+          "tokens": [
+            {
+              "value": "/*",
+              "scopes": [
+                "source.js",
+                "comment.block.js",
+                "punctuation.definition.comment.js"
+              ]
+            },
+            {
+              "value": "---------------------------------------------------------------------------------------------",
+              "scopes": [
+                "source.js",
+                "comment.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": " *  Copyright (c) Microsoft Corporation. All rights reserved.",
+          "tokens": [
+            {
+              "value": " *  Copyright (c) Microsoft Corporation. All rights reserved.",
+              "scopes": [
+                "source.js",
+                "comment.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": " *  Licensed under the MIT License. See License.txt in the project root for license information.",
+          "tokens": [
+            {
+              "value": " *  Licensed under the MIT License. See License.txt in the project root for license information.",
+              "scopes": [
+                "source.js",
+                "comment.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": " *--------------------------------------------------------------------------------------------*/",
+          "tokens": [
+            {
+              "value": " *--------------------------------------------------------------------------------------------",
+              "scopes": [
+                "source.js",
+                "comment.block.js"
+              ]
+            },
+            {
+              "value": "*/",
+              "scopes": [
+                "source.js",
+                "comment.block.js",
+                "punctuation.definition.comment.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "var gulp = require('gulp');",
+          "tokens": [
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "require",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "support.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "var tsb = require('gulp-tsb');",
+          "tokens": [
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "tsb",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "require",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "support.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "gulp-tsb",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "var util = require('./lib/util');",
+          "tokens": [
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "util",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "require",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "support.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "./lib/util",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "var watcher = require('./lib/watch');",
+          "tokens": [
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "watcher",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "require",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "support.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "./lib/watch",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "var assign = require('object-assign');",
+          "tokens": [
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "assign",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "require",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "support.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "object-assign",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "var compilation = tsb.create(assign({ verbose: true }, require('./tsconfig.json').compilerOptions));",
+          "tokens": [
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "compilation",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "tsb",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "create",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "assign",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js"
+              ]
+            },
+            {
+              "value": "verbose",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js",
+                "punctuation.separator.key-value.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "true",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "constant.language.boolean.true.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "require",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "support.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "./tsconfig.json",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "compilerOptions",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "variable.other.property.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "gulp.task('compile', function() {",
+          "tokens": [
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "task",
+              "scopes": [
+                "source.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "compile",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js"
+              ]
+            },
+            {
+              "value": "function",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "storage.type.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "punctuation.definition.parameters.begin.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "punctuation.definition.parameters.end.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\treturn gulp.src('**/*.ts', { base: '.' })",
+          "tokens": [
+            {
+              "value": "\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "return",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "keyword.control.flow.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "src",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "**/*.ts",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js"
+              ]
+            },
+            {
+              "value": "base",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js",
+                "punctuation.separator.key-value.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\t\t.pipe(compilation())",
+          "tokens": [
+            {
+              "value": "\t\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "pipe",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "compilation",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\t\t.pipe(gulp.dest(''));",
+          "tokens": [
+            {
+              "value": "\t\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "pipe",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "dest",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "});",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "gulp.task('watch', function() {",
+          "tokens": [
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "task",
+              "scopes": [
+                "source.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "watch",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js"
+              ]
+            },
+            {
+              "value": "function",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "storage.type.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "punctuation.definition.parameters.begin.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "punctuation.definition.parameters.end.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\tvar src = gulp.src('**/*.ts', { base: '.' });",
+          "tokens": [
+            {
+              "value": "\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "src",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "src",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "**/*.ts",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js"
+              ]
+            },
+            {
+              "value": "base",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js",
+                "punctuation.separator.key-value.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\treturn watcher('**/*.ts', { base: '.' })",
+          "tokens": [
+            {
+              "value": "\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "return",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "keyword.control.flow.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "watcher",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "**/*.ts",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js"
+              ]
+            },
+            {
+              "value": "base",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js"
+              ]
+            },
+            {
+              "value": ":",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "meta.object-literal.key.js",
+                "punctuation.separator.key-value.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "meta.object.member.js"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.objectliteral.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\t\t.pipe(util.incremental(compilation, src))",
+          "tokens": [
+            {
+              "value": "\t\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "pipe",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "util",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "support.module.node.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "incremental",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "compilation",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "src",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "\t\t.pipe(gulp.dest(''));",
+          "tokens": [
+            {
+              "value": "\t\t",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "pipe",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "dest",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "});",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "gulp.task('default', ['compile']);",
+          "tokens": [
+            {
+              "value": "gulp",
+              "scopes": [
+                "source.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "task",
+              "scopes": [
+                "source.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "default",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "source.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.array.literal.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.begin.js"
+              ]
+            },
+            {
+              "value": "compile",
+              "scopes": [
+                "source.js",
+                "meta.array.literal.js",
+                "string.quoted.single.js"
+              ]
+            },
+            {
+              "value": "'",
+              "scopes": [
+                "source.js",
+                "meta.array.literal.js",
+                "string.quoted.single.js",
+                "punctuation.definition.string.end.js"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "source.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "",
+          "tokens": [
+            {
+              "value": "",
+              "scopes": [
+                "source.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "function cloneArray(arr) {",
+          "tokens": [
+            {
+              "value": "function",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "storage.type.function.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js"
+              ]
+            },
+            {
+              "value": "cloneArray",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "punctuation.definition.parameters.begin.js"
+              ]
+            },
+            {
+              "value": "arr",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "variable.parameter.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.parameters.js",
+                "punctuation.definition.parameters.end.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    _.foo();",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "_",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "foo",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    var r = [];",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "r",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    for (var i = 0, len = arr.length; i < len; i++) {",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "for",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "keyword.control.loop.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "var",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "storage.type.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "i",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "0",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "constant.numeric.decimal.js"
+              ]
+            },
+            {
+              "value": ",",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "punctuation.separator.comma.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "len",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "meta.var-single-variable.expr.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js"
+              ]
+            },
+            {
+              "value": "arr",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "variable.other.object.js"
+              ]
+            },
+            {
+              "value": ".",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "punctuation.accessor.js"
+              ]
+            },
+            {
+              "value": "length",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.var.expr.js",
+                "support.variable.property.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "i",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "<",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "keyword.operator.relational.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "len",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "i",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": "++",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "keyword.operator.increment.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "{",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "        r[i] = doClone(arr[i]);",
+          "tokens": [
+            {
+              "value": "        ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "r",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": "i",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.array.literal.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "=",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "keyword.operator.assignment.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "doClone",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "entity.name.function.js"
+              ]
+            },
+            {
+              "value": "(",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": "arr",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": "[",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": "i",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.array.literal.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": "]",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.array.literal.js",
+                "meta.brace.square.js"
+              ]
+            },
+            {
+              "value": ")",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "meta.brace.round.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    }",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "    return r;",
+          "tokens": [
+            {
+              "value": "    ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "return",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "keyword.control.flow.js"
+              ]
+            },
+            {
+              "value": " ",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js"
+              ]
+            },
+            {
+              "value": "r",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "variable.other.readwrite.js"
+              ]
+            },
+            {
+              "value": ";",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.terminator.statement.js"
+              ]
+            }
+          ]
+        },
+        {
+          "line": "}",
+          "tokens": [
+            {
+              "value": "}",
+              "scopes": [
+                "source.js",
+                "meta.function.js",
+                "meta.block.js",
+                "punctuation.definition.block.js"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

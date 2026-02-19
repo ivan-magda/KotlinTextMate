@@ -26,6 +26,13 @@ class SentinelPatternTest {
     }
 
     @Test
+    fun `JavaScript grammar has 0 sentinel patterns`() {
+        val onigLib = JoniOnigLib()
+        loadAndCompileGrammar("grammars/JavaScript.tmLanguage.json", onigLib)
+        assertEquals("JavaScript should have no sentinel patterns", 0, onigLib.sentinelPatternCount)
+    }
+
+    @Test
     fun `Markdown grammar has exactly 1 sentinel pattern`() {
         val onigLib = JoniOnigLib()
         loadAndCompileGrammar("grammars/markdown.tmLanguage.json", onigLib)

@@ -18,6 +18,7 @@ class GoldenSnapshotTest(
             arrayOf("JSON", "grammars/JSON.tmLanguage.json", "conformance/golden/json.snapshot.json"),
             arrayOf("Kotlin", "grammars/kotlin.tmLanguage.json", "conformance/golden/kotlin.snapshot.json"),
             arrayOf("Markdown", "grammars/markdown.tmLanguage.json", "conformance/golden/markdown.snapshot.json"),
+            arrayOf("JavaScript", "grammars/JavaScript.tmLanguage.json", "conformance/golden/javascript.snapshot.json"),
         )
     }
 
