@@ -45,7 +45,7 @@ Compose UI (AnnotatedString) → Theme Engine → Tokenizer → Grammar → Rege
 
 Completed: Stage 0 (project setup), Stage 1 (Joni regex wrapper), Stage 2 (grammar parsing), Stage 3 (rule compilation), Stage 4 (tokenizer: StateStack, core loop, capture retokenization, BeginWhile checking, integration testing), Stage 5 (theme engine: parsing, scope matching, style resolution), Stage 6 (Compose UI: CodeHighlighter, CodeBlock composable, sample app with 3 grammars + theme switching)
 Skipped: Injection grammars (out of scope for PoC — content inside injected grammars tokenized as plain text)
-Stage 7 (validation): conformance tests done (100% pass rate on 33 first-mate + 3 golden snapshots). Pending: performance benchmark (#19), README (#20), ARCHITECTURE.md (#21)
+Stage 7 (validation): conformance tests done (100% pass rate on 33 first-mate + 4 golden snapshots). Benchmark corpus files added. Pending: performance benchmark (#19), README (#20), ARCHITECTURE.md (#21)
 
 ## Key Technical Details
 
