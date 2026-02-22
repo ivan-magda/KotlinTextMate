@@ -73,8 +73,6 @@ class FirstMateConformanceTest(
     }
 
     private fun loadGrammarForTest(): dev.textmate.grammar.Grammar {
-        var targetScopeFromPath: String? = null
-
         val registry = Registry(
             grammarSource = { null },
             onigLib = JoniOnigLib()
@@ -82,22 +80,17 @@ class FirstMateConformanceTest(
 
         // Pre-load all grammars via addGrammar so they're in the registry's
         // internal map — required for injectionLookup to discover injectors
-        testCase.grammars.forEach { path ->
-            if (javaClass.classLoader.getResource("${FIXTURES_BASE}$path") != null) {
-                val raw = ConformanceTestSupport.loadRawGrammar("$FIXTURES_BASE$path")
-                if (path == testCase.grammarPath) {
-                    targetScopeFromPath = raw.scopeName
-                }
-                registry.addGrammar(raw)
-            }
-        }
+        val loadedGrammars = testCase.grammars.mapNotNull { path ->
+            val resource = "${FIXTURES_BASE}$path"
+            if (javaClass.classLoader.getResource(resource) == null) return@mapNotNull null
+            val raw = ConformanceTestSupport.loadRawGrammar(resource)
+            registry.addGrammar(raw)
+            path to raw.scopeName
+        }.toMap()
 
-        val targetScope = when {
-            testCase.grammarScopeName != null -> testCase.grammarScopeName
-            testCase.grammarPath != null -> targetScopeFromPath
-                ?: error("Grammar for path '${testCase.grammarPath}' not found")
-            else -> error("Test '${testCase.desc}' has neither grammarPath nor grammarScopeName")
-        }
+        val targetScope = testCase.grammarScopeName
+            ?: loadedGrammars[testCase.grammarPath]
+            ?: error("Test '${testCase.desc}': target grammar not found")
 
         return registry.loadGrammar(targetScope)
             ?: error("Grammar for scope '$targetScope' could not be loaded")

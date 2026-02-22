@@ -16,6 +16,16 @@ class InjectionGrammarTest {
         return GrammarReader.readGrammar(stream)
     }
 
+    private fun createRegistry(vararg grammars: RawGrammar): Registry {
+        val registry = Registry(grammarSource = { null })
+        grammars.forEach { registry.addGrammar(it) }
+        return registry
+    }
+
+    /** Extract token text, clamping endIndex to line length (last token may exceed it). */
+    private fun tokenText(token: Token, line: String): String =
+        line.substring(token.startIndex, token.endIndex.coerceAtMost(line.length))
+
     // --- External injection grammar via injectionSelector ---
 
     @Test
@@ -29,11 +39,7 @@ class InjectionGrammarTest {
             injectionSelector = "comment",
             patterns = listOf(RawRule(match = "TODO", name = "keyword.todo.test"))
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-        registry.addGrammar(injectorRaw)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
         val injections = grammar.getInjections()
 
         assertEquals(1, injections.size)
@@ -49,11 +55,7 @@ class InjectionGrammarTest {
             injectionSelector = "comment",
             patterns = listOf(RawRule(match = "x", name = "test.x"))
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-        registry.addGrammar(injectorRaw)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
         val first = grammar.getInjections()
         val second = grammar.getInjections()
         assertSame("Same list instance expected (cache must return same reference)", first, second)
@@ -62,10 +64,7 @@ class InjectionGrammarTest {
     @Test
     fun `getInjections returns empty when no injectors registered`() {
         val hostRaw = RawGrammar(scopeName = "source.test", patterns = emptyList())
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
         assertTrue(grammar.getInjections().isEmpty())
     }
 
@@ -77,11 +76,7 @@ class InjectionGrammarTest {
             injectionSelector = "L:comment",
             patterns = listOf(RawRule(match = "x", name = "test.x"))
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-        registry.addGrammar(injectorRaw)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
         assertEquals(-1, grammar.getInjections()[0].priority)
     }
 
@@ -92,10 +87,7 @@ class InjectionGrammarTest {
             injectionSelector = "source.test",
             patterns = listOf(RawRule(match = "x", name = "test.x"))
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(selfInjectingGrammar)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(selfInjectingGrammar).loadGrammar("source.test")!!
         assertTrue(
             "Grammar must not inject into itself",
             grammar.getInjections().isEmpty()
@@ -115,10 +107,7 @@ class InjectionGrammarTest {
                 )
             )
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
         val injections = grammar.getInjections()
 
         assertEquals(1, injections.size)
@@ -129,23 +118,15 @@ class InjectionGrammarTest {
 
     @Test
     fun `hyperlink injected into C comment produces link scope`() {
-        val cGrammar = loadFixture("c.json")
-        val hyperlinkGrammar = loadFixture("hyperlink.json")
+        val grammar = createRegistry(loadFixture("c.json"), loadFixture("hyperlink.json"))
+            .loadGrammar("source.c")!!
 
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(cGrammar)
-        registry.addGrammar(hyperlinkGrammar)
-
-        val grammar = registry.loadGrammar("source.c")!!
         val line = "// http://example.com"
         val result = grammar.tokenizeLine(line)
 
-        val urlToken = requireNotNull(result.tokens.firstOrNull { token ->
-            val end = token.endIndex.coerceAtMost(line.length)
-            line.substring(token.startIndex, end) == "http://example.com"
-        }) {
+        val urlToken = requireNotNull(result.tokens.firstOrNull { tokenText(it, line) == "http://example.com" }) {
             "Expected a token for 'http://example.com'. " +
-            "Tokens: ${result.tokens.map { line.substring(it.startIndex, it.endIndex.coerceAtMost(line.length)) to it.scopes }}"
+            "Tokens: ${result.tokens.map { tokenText(it, line) to it.scopes }}"
         }
 
         assertTrue(
@@ -156,31 +137,23 @@ class InjectionGrammarTest {
 
     @Test
     fun `injected scope only fires inside matching scope — not outside comment`() {
-        val cGrammar = loadFixture("c.json")
-        val hyperlinkGrammar = loadFixture("hyperlink.json")
+        val grammar = createRegistry(loadFixture("c.json"), loadFixture("hyperlink.json"))
+            .loadGrammar("source.c")!!
 
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(cGrammar)
-        registry.addGrammar(hyperlinkGrammar)
-
-        val grammar = registry.loadGrammar("source.c")!!
         val line = "int x; // http://example.com"
         val result = grammar.tokenizeLine(line)
 
         // "int" token (outside comment) must not have hyperlink scope
         val intToken = result.tokens.first()
-        val intText = line.substring(intToken.startIndex, intToken.endIndex.coerceAtMost(line.length))
         assertFalse(
-            "'$intText' should not have hyperlink scope. Got: ${intToken.scopes}",
+            "'${tokenText(intToken, line)}' should not have hyperlink scope. Got: ${intToken.scopes}",
             intToken.scopes.contains("markup.underline.link.http.hyperlink")
         )
 
         // URL inside comment must have it
-        val urlToken = requireNotNull(result.tokens.firstOrNull { token ->
-            val end = token.endIndex.coerceAtMost(line.length)
-            line.substring(token.startIndex, end).startsWith("http://")
-        }) { "Expected a token for the URL inside the comment" }
-
+        val urlToken = requireNotNull(result.tokens.firstOrNull { tokenText(it, line).startsWith("http://") }) {
+            "Expected a token for the URL inside the comment"
+        }
         assertTrue(
             "Expected hyperlink scope on URL inside comment. Got: ${urlToken.scopes}",
             urlToken.scopes.contains("markup.underline.link.http.hyperlink")
@@ -198,17 +171,13 @@ class InjectionGrammarTest {
             injectionSelector = "L:source.test",
             patterns = listOf(RawRule(match = "hello", name = "greeting.injected"))
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-        registry.addGrammar(injectorRaw)
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
 
-        val grammar = registry.loadGrammar("source.test")!!
         val line = "hello world"
         val result = grammar.tokenizeLine(line)
 
         val firstToken = result.tokens.first()
-        val text = line.substring(firstToken.startIndex, firstToken.endIndex.coerceAtMost(line.length))
-        assertEquals("hello", text)
+        assertEquals("hello", tokenText(firstToken, line))
         assertTrue(
             "L: injection should win at same position. Scopes: ${firstToken.scopes}",
             firstToken.scopes.contains("greeting.injected")
@@ -219,7 +188,6 @@ class InjectionGrammarTest {
     fun `inline injection map produces correct scope at tokenizer level`() {
         val hostRaw = RawGrammar(
             scopeName = "source.test",
-            // begin/end rule keeps comment scope on the stack for injection matching
             patterns = listOf(RawRule(begin = "//", end = "$", name = "comment.line.test")),
             injections = mapOf(
                 "comment" to RawRule(
@@ -227,18 +195,14 @@ class InjectionGrammarTest {
                 )
             )
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
 
-        val grammar = registry.loadGrammar("source.test")!!
         val line = "// TODO fix this"
         val result = grammar.tokenizeLine(line)
 
-        val todoToken = requireNotNull(result.tokens.firstOrNull { token ->
-            val end = token.endIndex.coerceAtMost(line.length)
-            line.substring(token.startIndex, end) == "TODO"
-        }) { "Expected a token covering 'TODO'" }
-
+        val todoToken = requireNotNull(result.tokens.firstOrNull { tokenText(it, line) == "TODO" }) {
+            "Expected a token covering 'TODO'"
+        }
         assertTrue(
             "Expected keyword.todo.inline scope on TODO. Got: ${todoToken.scopes}",
             todoToken.scopes.contains("keyword.todo.inline")
@@ -246,15 +210,12 @@ class InjectionGrammarTest {
     }
 
     @Test
-    fun `no injectors — fast path returns matchRule result directly`() {
+    fun `tokenization works without injectors`() {
         val hostRaw = RawGrammar(
             scopeName = "source.test",
             patterns = listOf(RawRule(match = "\\w+", name = "word.test"))
         )
-        val registry = Registry(grammarSource = { null })
-        registry.addGrammar(hostRaw)
-
-        val grammar = registry.loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
         assertTrue("No injectors", grammar.getInjections().isEmpty())
 
         val result = grammar.tokenizeLine("hello")

@@ -249,25 +249,24 @@ internal fun matchRuleOrInjections(
     val injectionResult = matchInjections(injections, grammar, lineText, isFirstLine, linePos, stack, anchorPosition)
         ?: return matchResult
 
-    if (matchResult == null) return injectionResult.toMatchRuleResult()
+    if (matchResult == null) return injectionResult.matchRuleResult
 
     val matchStart = matchResult.captureIndices[0].start
-    val injStart = injectionResult.captureIndices[0].start
+    val injStart = injectionResult.matchRuleResult.captureIndices[0].start
 
-    return if (injStart < matchStart || (injectionResult.priorityMatch && injStart == matchStart)) {
-        injectionResult.toMatchRuleResult()
-    } else {
-        matchResult
+    if (injStart < matchStart || (injectionResult.priorityMatch && injStart == matchStart)) {
+        return injectionResult.matchRuleResult
     }
+    return matchResult
 }
 
-private data class MatchInjectionsResult(
+/**
+ * Best injection match with priority metadata for tie-breaking against normal rules.
+ */
+private class MatchInjectionsResult(
     val priorityMatch: Boolean,
-    val captureIndices: List<CaptureIndex>,
-    val matchedRuleId: RuleId
-) {
-    fun toMatchRuleResult() = MatchRuleResult(captureIndices, matchedRuleId)
-}
+    val matchRuleResult: MatchRuleResult
+)
 
 /**
  * Scan all applicable injection rules and return the best match.
@@ -282,9 +281,8 @@ private fun matchInjections(
     stack: StateStackImpl,
     anchorPosition: Int
 ): MatchInjectionsResult? {
-    var bestRating = Int.MAX_VALUE
-    var bestCaptureIndices: List<CaptureIndex>? = null
-    var bestRuleId: RuleId = RuleId.NO_RULE
+    var bestMatchStart = Int.MAX_VALUE
+    var bestResult: MatchRuleResult? = null
     var bestPriority = 0
 
     val scopes = stack.contentNameScopesList?.getScopeNames() ?: return null
@@ -302,22 +300,20 @@ private fun matchInjections(
         val matchResult = ruleScanner.findNextMatchSync(lineText, linePos) ?: continue
         if (matchResult.captureIndices.isEmpty()) continue
 
-        val rating = matchResult.captureIndices[0].start
-        if (rating >= bestRating) continue
+        val matchStart = matchResult.captureIndices[0].start
+        if (matchStart >= bestMatchStart) continue
 
-        bestRating = rating
-        bestCaptureIndices = matchResult.captureIndices
-        bestRuleId = matchResult.ruleId
+        bestMatchStart = matchStart
+        bestResult = MatchRuleResult(matchResult.captureIndices, matchResult.ruleId)
         bestPriority = injection.priority
 
-        if (bestRating == linePos) break
+        if (bestMatchStart == linePos) break
     }
 
-    val captures = bestCaptureIndices ?: return null
+    val result = bestResult ?: return null
     return MatchInjectionsResult(
         priorityMatch = bestPriority == -1,
-        captureIndices = captures,
-        matchedRuleId = bestRuleId
+        matchRuleResult = result
     )
 }
 
