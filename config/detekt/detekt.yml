@@ -1,20 +1,8 @@
 complexity:
-  CyclomaticComplexMethod:
-    threshold: 22
-  CognitiveComplexMethod:
-    threshold: 20
-  LongMethod:
-    threshold: 80
   LongParameterList:
-    functionThreshold: 6
-    constructorThreshold: 6
     ignoreDefaultParameters: true
-  NestedBlockDepth:
-    threshold: 5
 
 style:
-  ReturnCount:
-    max: 4
   ForbiddenComment:
     comments:
       - reason: "TODO without assignee — add a name or issue link"
