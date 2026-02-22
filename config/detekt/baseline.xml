@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues/>
+  <CurrentIssues>
+    <ID>ComplexCondition:Rule.kt$Rule$!_nameIsCapturing || _name == null || lineText == null || captureIndices == null</ID>
+    <ID>ConstructorParameterNaming:RegExpSource.kt$RegExpSource.AnchorCache$val A0_G0: String</ID>
+    <ID>ConstructorParameterNaming:RegExpSource.kt$RegExpSource.AnchorCache$val A0_G1: String</ID>
+    <ID>ConstructorParameterNaming:RegExpSource.kt$RegExpSource.AnchorCache$val A1_G0: String</ID>
+    <ID>ConstructorParameterNaming:RegExpSource.kt$RegExpSource.AnchorCache$val A1_G1: String</ID>
+    <ID>ConstructorParameterNaming:Rule.kt$Rule$private val _contentName: String?</ID>
+    <ID>ConstructorParameterNaming:Rule.kt$Rule$private val _name: String?</ID>
+    <ID>CyclomaticComplexMethod:RuleFactory.kt$RuleFactory$fun compilePatterns( patterns: List&lt;RawRule&gt;?, helper: IRuleFactoryHelper, repository: MutableMap&lt;String, RawRule&gt; ): CompilePatternsResult</ID>
+    <ID>CyclomaticComplexMethod:ThemeReader.kt$ThemeReader$private fun readTheme(inputStreams: List&lt;InputStream&gt;): Theme</ID>
+    <ID>CyclomaticComplexMethod:Tokenizer.kt$internal fun tokenizeString( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, lineTokens: LineTokens, checkWhile: Boolean = false ): StateStackImpl</ID>
+    <ID>FunctionNaming:CodeBlock.kt$@Composable fun CodeBlock( code: String, grammar: Grammar, theme: Theme, modifier: Modifier = Modifier, style: CodeBlockStyle = CodeBlockDefaults.style(), )</ID>
+    <ID>LongMethod:Tokenizer.kt$internal fun tokenizeString( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, lineTokens: LineTokens, checkWhile: Boolean = false ): StateStackImpl</ID>
+    <ID>LongParameterList:Rule.kt$BeginEndRule$( id: RuleId, name: String?, contentName: String?, begin: String, val beginCaptures: List&lt;CaptureRule?&gt;, end: String?, val endCaptures: List&lt;CaptureRule?&gt;, val applyEndPatternLast: Boolean, patterns: CompilePatternsResult )</ID>
+    <ID>LongParameterList:Rule.kt$BeginWhileRule$( id: RuleId, name: String?, contentName: String?, begin: String, val beginCaptures: List&lt;CaptureRule?&gt;, whilePattern: String, val whileCaptures: List&lt;CaptureRule?&gt;, patterns: CompilePatternsResult )</ID>
+    <ID>LongParameterList:StateStack.kt$StateStackImpl$( ruleId: RuleId, enterPos: Int, anchorPos: Int, beginRuleCapturedEOL: Boolean, endRule: String?, nameScopesList: AttributedScopeStack?, contentNameScopesList: AttributedScopeStack? )</ID>
+    <ID>LongParameterList:StateStack.kt$StateStackImpl$( val parent: StateStackImpl?, private val ruleId: RuleId, enterPos: Int, anchorPos: Int, val beginRuleCapturedEOL: Boolean, val endRule: String?, val nameScopesList: AttributedScopeStack?, val contentNameScopesList: AttributedScopeStack? )</ID>
+    <ID>LongParameterList:Tokenizer.kt$( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, anchorPosition: Int )</ID>
+    <ID>LongParameterList:Tokenizer.kt$( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, lineTokens: LineTokens )</ID>
+    <ID>LongParameterList:Tokenizer.kt$( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, lineTokens: LineTokens, checkWhile: Boolean = false )</ID>
+    <ID>LongParameterList:Tokenizer.kt$( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, stack: StateStackImpl, lineTokens: LineTokens, captures: List&lt;CaptureRule?&gt;, captureIndices: List&lt;CaptureIndex&gt; )</ID>
+    <ID>LongParameterList:Tokenizer.kt$( injections: List&lt;InjectionRule&gt;, grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, anchorPosition: Int )</ID>
+    <ID>LoopWithTooManyJumpStatements:InjectionSelectorParser.kt$InjectionSelectorParser.Parser$while</ID>
+    <ID>LoopWithTooManyJumpStatements:Theme.kt$Theme$for</ID>
+    <ID>LoopWithTooManyJumpStatements:Tokenizer.kt$for</ID>
+    <ID>LoopWithTooManyJumpStatements:Tokenizer.kt$while</ID>
+    <ID>MagicNumber:CaptureUtils.kt$3</ID>
+    <ID>MagicNumber:OnigString.kt$OnigString$0x7F</ID>
+    <ID>MagicNumber:OnigString.kt$OnigString$0x7FF</ID>
+    <ID>MagicNumber:OnigString.kt$OnigString$0xFFFF</ID>
+    <ID>MagicNumber:OnigString.kt$OnigString$3</ID>
+    <ID>MagicNumber:OnigString.kt$OnigString$4</ID>
+    <ID>MagicNumber:ThemeReader.kt$0xFF</ID>
+    <ID>MagicNumber:ThemeReader.kt$0xFF000000L</ID>
+    <ID>MagicNumber:ThemeReader.kt$16</ID>
+    <ID>MagicNumber:ThemeReader.kt$24</ID>
+    <ID>MagicNumber:ThemeReader.kt$6</ID>
+    <ID>MagicNumber:ThemeReader.kt$8</ID>
+    <ID>MagicNumber:ThemeReader.kt$ThemeReader$0xFF000000L</ID>
+    <ID>MagicNumber:ThemeReader.kt$ThemeReader$0xFFFFFFFFL</ID>
+    <ID>MatchingDeclarationName:Tokenizer.kt$MatchRuleResult</ID>
+    <ID>NestedBlockDepth:RuleFactory.kt$RuleFactory$fun compilePatterns( patterns: List&lt;RawRule&gt;?, helper: IRuleFactoryHelper, repository: MutableMap&lt;String, RawRule&gt; ): CompilePatternsResult</ID>
+    <ID>NoWildcardImports:AttributedScopeStackTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:CaptureUtilsTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:ConformanceTestSupportTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:GrammarIntegrationTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:GrammarReaderTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:GrammarTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:IncludeReferenceTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:InjectionGrammarTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:InjectionSelectorParserTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:RegExpSourceTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:RegistryTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:RuleFactoryTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:ScopeStackTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:StateStackTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:ThemeReaderTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:ThemeTest.kt$import org.junit.Assert.*</ID>
+    <ID>ReturnCount:Tokenizer.kt$internal fun matchRuleOrInjections( grammar: Grammar, lineText: OnigString, isFirstLine: Boolean, linePos: Int, stack: StateStackImpl, anchorPosition: Int ): MatchRuleResult?</ID>
+    <ID>SwallowedException:RegistryTest.kt$RegistryTest$e: StackOverflowError</ID>
+    <ID>SwallowedException:RuleFactoryTest.kt$RuleFactoryTest$error: StackOverflowError</ID>
+    <ID>TooManyFunctions:StateStack.kt$StateStackImpl : StateStack</ID>
+    <ID>UnusedParameter:AttributedScopeStack.kt$AttributedScopeStack$grammar: Any?</ID>
+    <ID>UnusedParameter:Rule.kt$BeginWhileRule$grammar: IRuleRegistryOnigLib</ID>
+    <ID>UseCheckOrError:ConformanceTestSupport.kt$ConformanceTestSupport$throw IllegalStateException("Failed to parse: $resourcePath")</ID>
+    <ID>UseCheckOrError:ConformanceTestSupport.kt$ConformanceTestSupport$throw IllegalStateException("Resource not found: $resourcePath")</ID>
+    <ID>UtilityClassWithPublicConstructor:TextMateGrammar.kt$TextMateGrammar</ID>
+    <ID>VariableNaming:RegExpSourceList.kt$RegExpSourceList$private var _anchorCache_A0_G0: CompiledRule? = null</ID>
+    <ID>VariableNaming:RegExpSourceList.kt$RegExpSourceList$private var _anchorCache_A0_G1: CompiledRule? = null</ID>
+    <ID>VariableNaming:RegExpSourceList.kt$RegExpSourceList$private var _anchorCache_A1_G0: CompiledRule? = null</ID>
+    <ID>VariableNaming:RegExpSourceList.kt$RegExpSourceList$private var _anchorCache_A1_G1: CompiledRule? = null</ID>
+    <ID>WildcardImport:AttributedScopeStackTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:CaptureUtilsTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:ConformanceTestSupportTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:GrammarIntegrationTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:GrammarReaderTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:GrammarTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:IncludeReferenceTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:InjectionGrammarTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:InjectionSelectorParserTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:RegExpSourceTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:RegistryTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:RuleFactoryTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:ScopeStackTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:StateStackTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:ThemeReaderTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:ThemeTest.kt$import org.junit.Assert.*</ID>
+    <ID>WrongEqualsTypeParameter:StateStack.kt$StateStackImpl$override fun equals(other: StateStack): Boolean</ID>
+  </CurrentIssues>
+</SmellBaseline>
