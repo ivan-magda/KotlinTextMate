@@ -56,29 +56,6 @@ class RegistryTest {
     }
 
     @Test
-    fun `alias and canonical scope share one cached grammar instance`() {
-        val rawJson = loadRaw("grammars/JSON.tmLanguage.json")
-        val registry = Registry(
-            grammarSource = { scope -> if (scope == "source.alias") rawJson else null },
-            onigLib = JoniOnigLib()
-        )
-
-        val aliasGrammar = requireNotNull(registry.loadGrammar("source.alias"))
-        val aliasResult = aliasGrammar.tokenizeLine("true")
-        assertTrue(aliasResult.tokens.any { it.scopes.contains("constant.language.json") })
-
-        val canonicalGrammar = requireNotNull(registry.loadGrammar("source.json"))
-        assertSame(
-            "Alias and canonical scope names should return the same Grammar instance",
-            aliasGrammar,
-            canonicalGrammar
-        )
-
-        val canonicalResult = canonicalGrammar.tokenizeLine("true")
-        assertTrue(canonicalResult.tokens.any { it.scopes.contains("constant.language.json") })
-    }
-
-    @Test
     fun `addGrammar pre-loads grammar`() {
         val sourceCalledFor = mutableListOf<String>()
         val registry = Registry(
@@ -93,28 +70,6 @@ class RegistryTest {
         assertNotNull(registry.loadGrammar("source.json"))
         assertFalse("GrammarSource should not be called for pre-loaded grammar",
             sourceCalledFor.contains("source.json"))
-    }
-
-    @Test
-    fun `addGrammar invalidates alias key entries`() {
-        // Load "source.alias" via grammarSource, which returns a grammar with scopeName "source.json".
-        // resolveRawGrammar caches both rawGrammars["source.alias"] and grammars["source.alias"].
-        // addGrammar(newJson) must also invalidate those alias entries, not just "source.json".
-        val rawJson = loadRaw("grammars/JSON.tmLanguage.json") // scopeName = "source.json"
-        val registry = Registry(
-            grammarSource = { scope -> if (scope == "source.alias") rawJson else null },
-            onigLib = JoniOnigLib()
-        )
-
-        val first = requireNotNull(registry.loadGrammar("source.alias"))
-
-        // Replace the grammar with a new instance
-        val rawJson2 = loadRaw("grammars/JSON.tmLanguage.json")
-        registry.addGrammar(rawJson2)
-
-        // alias key must return a freshly compiled Grammar, not the stale cached one
-        val second = requireNotNull(registry.loadGrammar("source.alias"))
-        assertNotSame("loadGrammar(alias) should return a new Grammar after addGrammar", first, second)
     }
 
     @Test

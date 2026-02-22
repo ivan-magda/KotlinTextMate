@@ -17,35 +17,17 @@ class Registry(
     private val grammars = mutableMapOf<String, Grammar>()
 
     fun addGrammar(rawGrammar: RawGrammar) {
-        val canonicalScope = rawGrammar.scopeName
-        val keysToRefresh = mutableSetOf(canonicalScope)
-        rawGrammars.forEach { (key, cached) ->
-            if (cached.scopeName == canonicalScope) {
-                keysToRefresh += key
-            }
-        }
-
-        keysToRefresh.forEach { key ->
-            rawGrammars[key] = rawGrammar
-            grammars.remove(key)
-        }
+        rawGrammars[rawGrammar.scopeName] = rawGrammar
+        grammars.remove(rawGrammar.scopeName)
     }
 
     fun loadGrammar(scopeName: String): Grammar? {
         grammars[scopeName]?.let { return it }
 
         val raw = resolveRawGrammar(scopeName) ?: return null
-        val canonicalScope = raw.scopeName
-
-        grammars[canonicalScope]?.let { cached ->
-            grammars[scopeName] = cached
-            return cached
-        }
-
         val grammar = Grammar(raw.scopeName, raw, onigLib) { lookupScope ->
             resolveRawGrammar(lookupScope)
         }
-        grammars[canonicalScope] = grammar
         grammars[scopeName] = grammar
 
         return grammar
@@ -55,11 +37,7 @@ class Registry(
         rawGrammars[scopeName]?.let { return it }
 
         val loaded = grammarSource.loadRawGrammar(scopeName) ?: return null
-        rawGrammars[loaded.scopeName] = loaded
-
-        if (loaded.scopeName != scopeName) {
-            rawGrammars[scopeName] = loaded
-        }
+        rawGrammars[scopeName] = loaded
 
         return loaded
     }
