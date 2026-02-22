@@ -67,22 +67,38 @@ class GrammarIntegrationTest {
         printTokens(line, tokens)
         assertTokensCoverLine(line, tokens)
 
-        assertTrue("Should have property-name scope",
-            tokens.any { it.scopes.contains("support.type.property-name.json") })
-        assertTrue("Should have string scope",
-            tokens.any { it.scopes.contains("string.quoted.double.json") })
-        assertTrue("Should have numeric scope",
-            tokens.any { it.scopes.contains("constant.numeric.json") })
-        assertTrue("Should have boolean scope",
-            tokens.any { it.scopes.contains("constant.language.json") })
-        assertTrue("Should have dictionary begin",
-            tokens.any { it.scopes.contains("punctuation.definition.dictionary.begin.json") })
-        assertTrue("Should have dictionary end",
-            tokens.any { it.scopes.contains("punctuation.definition.dictionary.end.json") })
-        assertTrue("Should have key-value separator",
-            tokens.any { it.scopes.contains("punctuation.separator.dictionary.key-value.json") })
-        assertTrue("Should have pair separator",
-            tokens.any { it.scopes.contains("punctuation.separator.dictionary.pair.json") })
+        assertTrue(
+            "Should have property-name scope",
+            tokens.any { it.scopes.contains("support.type.property-name.json") }
+        )
+        assertTrue(
+            "Should have string scope",
+            tokens.any { it.scopes.contains("string.quoted.double.json") }
+        )
+        assertTrue(
+            "Should have numeric scope",
+            tokens.any { it.scopes.contains("constant.numeric.json") }
+        )
+        assertTrue(
+            "Should have boolean scope",
+            tokens.any { it.scopes.contains("constant.language.json") }
+        )
+        assertTrue(
+            "Should have dictionary begin",
+            tokens.any { it.scopes.contains("punctuation.definition.dictionary.begin.json") }
+        )
+        assertTrue(
+            "Should have dictionary end",
+            tokens.any { it.scopes.contains("punctuation.definition.dictionary.end.json") }
+        )
+        assertTrue(
+            "Should have key-value separator",
+            tokens.any { it.scopes.contains("punctuation.separator.dictionary.key-value.json") }
+        )
+        assertTrue(
+            "Should have pair separator",
+            tokens.any { it.scopes.contains("punctuation.separator.dictionary.pair.json") }
+        )
     }
 
     @Test
@@ -104,15 +120,21 @@ class GrammarIntegrationTest {
 
         // Line 3: nested value has numeric scope and property-name scope
         val line3Tokens = results[2].second.tokens
-        assertTrue("Nested value should have numeric scope",
-            line3Tokens.any { it.scopes.contains("constant.numeric.json") })
-        assertTrue("Nested key should have property-name scope",
-            line3Tokens.any { it.scopes.contains("support.type.property-name.json") })
+        assertTrue(
+            "Nested value should have numeric scope",
+            line3Tokens.any { it.scopes.contains("constant.numeric.json") }
+        )
+        assertTrue(
+            "Nested key should have property-name scope",
+            line3Tokens.any { it.scopes.contains("support.type.property-name.json") }
+        )
 
         // Line 5: final } has dictionary end punctuation
         val line5Tokens = results[4].second.tokens
-        assertTrue("Final brace should have dictionary end scope",
-            line5Tokens.any { it.scopes.contains("punctuation.definition.dictionary.end.json") })
+        assertTrue(
+            "Final brace should have dictionary end scope",
+            line5Tokens.any { it.scopes.contains("punctuation.definition.dictionary.end.json") }
+        )
     }
 
     // --- Kotlin integration tests ---
@@ -135,29 +157,43 @@ class GrammarIntegrationTest {
 
         // L1: fun keyword and function name
         val l1 = results[0].second.tokens
-        assertTrue("L1 should have fun keyword",
-            l1.any { it.scopes.contains("keyword.hard.fun.kotlin") })
-        assertTrue("L1 should have function name",
-            l1.any { it.scopes.contains("entity.name.function.declaration.kotlin") })
+        assertTrue(
+            "L1 should have fun keyword",
+            l1.any { it.scopes.contains("keyword.hard.fun.kotlin") }
+        )
+        assertTrue(
+            "L1 should have function name",
+            l1.any { it.scopes.contains("entity.name.function.declaration.kotlin") }
+        )
 
         // L2: val keyword, string, template expression
         val l2 = results[1].second.tokens
-        assertTrue("L2 should have val keyword",
-            l2.any { it.scopes.contains("keyword.hard.kotlin") })
-        assertTrue("L2 should have string scope",
-            l2.any { it.scopes.contains("string.quoted.double.kotlin") })
-        assertTrue("L2 should have template expression",
-            l2.any { it.scopes.contains("meta.template.expression.kotlin") })
+        assertTrue(
+            "L2 should have val keyword",
+            l2.any { it.scopes.contains("keyword.hard.kotlin") }
+        )
+        assertTrue(
+            "L2 should have string scope",
+            l2.any { it.scopes.contains("string.quoted.double.kotlin") }
+        )
+        assertTrue(
+            "L2 should have template expression",
+            l2.any { it.scopes.contains("meta.template.expression.kotlin") }
+        )
 
         // L3: function call
         val l3 = results[2].second.tokens
-        assertTrue("L3 should have function call scope",
-            l3.any { it.scopes.contains("entity.name.function.call.kotlin") })
+        assertTrue(
+            "L3 should have function call scope",
+            l3.any { it.scopes.contains("entity.name.function.call.kotlin") }
+        )
 
         // L4: all tokens have source.kotlin
         val l4 = results[3].second.tokens
-        assertTrue("L4 all tokens should have source.kotlin",
-            l4.all { it.scopes.contains("source.kotlin") })
+        assertTrue(
+            "L4 all tokens should have source.kotlin",
+            l4.all { it.scopes.contains("source.kotlin") }
+        )
     }
 
     @Test
@@ -169,8 +205,10 @@ class GrammarIntegrationTest {
         printTokens(line, result.tokens)
         assertTokensCoverLine(line, result.tokens)
 
-        assertTrue("Should have variable string-escape scope for \$name",
-            result.tokens.any { it.scopes.contains("variable.string-escape.kotlin") })
+        assertTrue(
+            "Should have variable string-escape scope for \$name",
+            result.tokens.any { it.scopes.contains("variable.string-escape.kotlin") }
+        )
     }
 
     // --- Markdown integration tests ---
@@ -195,33 +233,49 @@ class GrammarIntegrationTest {
         }
 
         // L1: separator
-        assertTrue("L1 should have separator scope",
-            results[0].second.tokens.any { it.scopes.contains("meta.separator.markdown") })
+        assertTrue(
+            "L1 should have separator scope",
+            results[0].second.tokens.any { it.scopes.contains("meta.separator.markdown") }
+        )
 
         // L2: fenced code begin
         val l2 = results[1].second.tokens
-        assertTrue("L2 should have fenced_code scope",
-            l2.any { it.scopes.contains("markup.fenced_code.block.markdown") })
-        assertTrue("L2 should have punctuation scope",
-            l2.any { it.scopes.contains("punctuation.definition.markdown") })
+        assertTrue(
+            "L2 should have fenced_code scope",
+            l2.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+        assertTrue(
+            "L2 should have punctuation scope",
+            l2.any { it.scopes.contains("punctuation.definition.markdown") }
+        )
 
         // L3: inside fenced code
-        assertTrue("L3 should still have fenced_code scope",
-            results[2].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertTrue(
+            "L3 should still have fenced_code scope",
+            results[2].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
 
         // L4: closing fence
-        assertTrue("L4 should have fenced_code scope",
-            results[3].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertTrue(
+            "L4 should have fenced_code scope",
+            results[3].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
 
         // L5: empty line after close — NOT fenced_code
-        assertFalse("L5 should NOT have fenced_code scope",
-            results[4].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertFalse(
+            "L5 should NOT have fenced_code scope",
+            results[4].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
 
         // L6-L7: raw block
-        assertTrue("L6 should have raw block scope",
-            results[5].second.tokens.any { it.scopes.contains("markup.raw.block.markdown") })
-        assertTrue("L7 should have raw block scope",
-            results[6].second.tokens.any { it.scopes.contains("markup.raw.block.markdown") })
+        assertTrue(
+            "L6 should have raw block scope",
+            results[5].second.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+        assertTrue(
+            "L7 should have raw block scope",
+            results[6].second.tokens.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
     }
 
     @Test
@@ -243,32 +297,50 @@ class GrammarIntegrationTest {
         }
 
         // Fenced block lines
-        assertTrue("L1 should have fenced_code scope",
-            results[0].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") })
-        assertTrue("L2 should have fenced_code scope",
-            results[1].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") })
-        assertTrue("L3 should have fenced_code scope",
-            results[2].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertTrue(
+            "L1 should have fenced_code scope",
+            results[0].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+        assertTrue(
+            "L2 should have fenced_code scope",
+            results[1].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
+        assertTrue(
+            "L3 should have fenced_code scope",
+            results[2].second.tokens.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
 
         // Separator: no fenced scope leak
         val l4 = results[3].second.tokens
-        assertTrue("L4 should have separator scope",
-            l4.any { it.scopes.contains("meta.separator.markdown") })
-        assertFalse("L4 should NOT have fenced_code scope",
-            l4.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertTrue(
+            "L4 should have separator scope",
+            l4.any { it.scopes.contains("meta.separator.markdown") }
+        )
+        assertFalse(
+            "L4 should NOT have fenced_code scope",
+            l4.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
 
         // Raw block: no fenced scope leak
         val l5 = results[4].second.tokens
-        assertTrue("L5 should have raw block scope",
-            l5.any { it.scopes.contains("markup.raw.block.markdown") })
-        assertFalse("L5 should NOT have fenced_code scope",
-            l5.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertTrue(
+            "L5 should have raw block scope",
+            l5.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+        assertFalse(
+            "L5 should NOT have fenced_code scope",
+            l5.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
 
         val l6 = results[5].second.tokens
-        assertTrue("L6 should have raw block scope",
-            l6.any { it.scopes.contains("markup.raw.block.markdown") })
-        assertFalse("L6 should NOT have fenced_code scope",
-            l6.any { it.scopes.contains("markup.fenced_code.block.markdown") })
+        assertTrue(
+            "L6 should have raw block scope",
+            l6.any { it.scopes.contains("markup.raw.block.markdown") }
+        )
+        assertFalse(
+            "L6 should NOT have fenced_code scope",
+            l6.any { it.scopes.contains("markup.fenced_code.block.markdown") }
+        )
     }
 
     @Test
@@ -285,16 +357,22 @@ class GrammarIntegrationTest {
         printTokens("Some **bold** and `inline code`", r2.tokens)
 
         // Heading should get markup.heading scope
-        assertTrue("Heading should have markup.heading scope",
-            r1.tokens.any { it.scopes.any { s -> s.startsWith("markup.heading") } })
+        assertTrue(
+            "Heading should have markup.heading scope",
+            r1.tokens.any { it.scopes.any { s -> s.startsWith("markup.heading") } }
+        )
 
         // Bold should get markup.bold scope
-        assertTrue("Bold should have markup.bold scope",
-            r2.tokens.any { it.scopes.any { s -> s.startsWith("markup.bold") } })
+        assertTrue(
+            "Bold should have markup.bold scope",
+            r2.tokens.any { it.scopes.any { s -> s.startsWith("markup.bold") } }
+        )
 
         // Inline code should get markup.inline.raw scope
-        assertTrue("Inline code should have markup.inline.raw scope",
-            r2.tokens.any { it.scopes.any { s -> s.startsWith("markup.inline.raw") } })
+        assertTrue(
+            "Inline code should have markup.inline.raw scope",
+            r2.tokens.any { it.scopes.any { s -> s.startsWith("markup.inline.raw") } }
+        )
     }
 
     @Test
@@ -317,23 +395,33 @@ class GrammarIntegrationTest {
         }
 
         // Heading
-        assertTrue("Should have heading scope",
-            results[0].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.heading") } })
+        assertTrue(
+            "Should have heading scope",
+            results[0].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.heading") } }
+        )
 
         // Bold
-        assertTrue("Should have bold scope",
-            results[2].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.bold") } })
+        assertTrue(
+            "Should have bold scope",
+            results[2].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.bold") } }
+        )
 
         // Italic
-        assertTrue("Should have italic scope",
-            results[2].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.italic") } })
+        assertTrue(
+            "Should have italic scope",
+            results[2].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.italic") } }
+        )
 
         // Blockquote
-        assertTrue("Should have quote scope",
-            results[4].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.quote") } })
+        assertTrue(
+            "Should have quote scope",
+            results[4].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.quote") } }
+        )
 
         // List item
-        assertTrue("Should have list scope",
-            results[6].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.list") } })
+        assertTrue(
+            "Should have list scope",
+            results[6].second.tokens.any { it.scopes.any { s -> s.startsWith("markup.list") } }
+        )
     }
 }
