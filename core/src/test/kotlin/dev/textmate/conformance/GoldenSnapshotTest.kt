@@ -30,7 +30,9 @@ class GoldenSnapshotTest(
 
         for (file in snapshot.files) {
             ConformanceTestSupport.assertGrammarTokenization(
-                grammar, file.lines, "$label/${file.source}"
+                grammar,
+                file.lines,
+                "$label/${file.source}"
             )
         }
     }

@@ -38,14 +38,17 @@ class SentinelPatternTest {
         loadAndCompileGrammar("grammars/markdown.tmLanguage.json", onigLib)
         assertEquals(
             "Markdown should have exactly 1 sentinel (strikethrough)",
-            1, onigLib.sentinelPatternCount
+            1,
+            onigLib.sentinelPatternCount
         )
     }
 
     private fun loadAndCompileGrammar(resourcePath: String, onigLib: JoniOnigLib) {
         val rawGrammar = ConformanceTestSupport.loadRawGrammar(resourcePath)
         val grammar = dev.textmate.grammar.Grammar(
-            rawGrammar.scopeName, rawGrammar, onigLib
+            rawGrammar.scopeName,
+            rawGrammar,
+            onigLib
         )
         // Tokenize representative text to trigger lazy pattern compilation.
         // Only rules actually entered get their sub-patterns compiled, so deeply

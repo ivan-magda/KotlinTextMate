@@ -39,7 +39,9 @@ class FirstMateConformanceTest(
                     if (cl.getResource(resource) != null) {
                         val raw = ConformanceTestSupport.loadRawGrammar(resource)
                         raw.scopeName to resource
-                    } else null
+                    } else {
+                        null
+                    }
                 }.toMap()
         }
 
@@ -59,7 +61,9 @@ class FirstMateConformanceTest(
         if (desc in KNOWN_DIVERGENCES) {
             try {
                 ConformanceTestSupport.assertGrammarTokenization(
-                    grammar, testCase.lines, desc
+                    grammar,
+                    testCase.lines,
+                    desc
                 )
             } catch (_: AssertionError) {
                 return // Expected divergence
@@ -67,7 +71,9 @@ class FirstMateConformanceTest(
             fail("$desc passed but is in KNOWN_DIVERGENCES — remove it from the set")
         } else {
             ConformanceTestSupport.assertGrammarTokenization(
-                grammar, testCase.lines, desc
+                grammar,
+                testCase.lines,
+                desc
             )
         }
     }

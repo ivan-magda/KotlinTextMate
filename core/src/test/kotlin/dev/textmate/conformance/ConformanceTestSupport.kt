@@ -155,12 +155,14 @@ object ConformanceTestSupport {
         if (tokens.isEmpty()) return
         assertEquals(
             "Tiling: first token should start at 0 in '$testDesc', line $lineIndex",
-            0, tokens.first().startIndex
+            0,
+            tokens.first().startIndex
         )
         for (i in 1 until tokens.size) {
             assertEquals(
                 "Tiling: gap/overlap between token[${i - 1}] and token[$i] in '$testDesc', line $lineIndex",
-                tokens[i - 1].endIndex, tokens[i].startIndex
+                tokens[i - 1].endIndex,
+                tokens[i].startIndex
             )
         }
         assertTrue(
