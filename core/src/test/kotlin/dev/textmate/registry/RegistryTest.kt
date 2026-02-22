@@ -212,7 +212,8 @@ class RegistryTest {
         registry.addGrammar(hostRaw)
         registry.addGrammar(injectorRaw)
 
-        val grammar = registry.loadGrammar("source.host")!!
+        val grammar = registry.loadGrammar("source.host")
+            ?: error("Grammar 'source.host' not found")
         assertEquals(1, grammar.getInjections().size)
     }
 }
