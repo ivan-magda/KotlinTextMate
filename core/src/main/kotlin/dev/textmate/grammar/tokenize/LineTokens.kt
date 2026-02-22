@@ -22,11 +22,13 @@ internal class LineTokens {
 
         val scopes = scopesList?.getScopeNames() ?: emptyList()
 
-        _tokens.add(Token(
-            startIndex = _lastTokenEndIndex,
-            endIndex = endIndex,
-            scopes = scopes
-        ))
+        _tokens.add(
+            Token(
+                startIndex = _lastTokenEndIndex,
+                endIndex = endIndex,
+                scopes = scopes
+            )
+        )
 
         _lastTokenEndIndex = endIndex
     }

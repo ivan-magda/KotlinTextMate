@@ -50,7 +50,8 @@ internal fun tokenizeString(
     }
 
     while (!stop) {
-        val r = matchRuleOrInjections(grammar, lineText, currentIsFirstLine, currentLinePos, currentStack, anchorPosition)
+        val r =
+            matchRuleOrInjections(grammar, lineText, currentIsFirstLine, currentLinePos, currentStack, anchorPosition)
 
         if (r == null) {
             // No match — produce token to end of line
@@ -79,7 +80,15 @@ internal fun tokenizeString(
 
             currentStack = currentStack.withContentNameScopesList(currentStack.nameScopesList)
 
-            handleCaptures(grammar, lineText, currentIsFirstLine, currentStack, lineTokens, poppedRule.endCaptures, captureIndices)
+            handleCaptures(
+                grammar,
+                lineText,
+                currentIsFirstLine,
+                currentStack,
+                lineTokens,
+                poppedRule.endCaptures,
+                captureIndices
+            )
 
             lineTokens.produce(currentStack, captureIndices[0].end)
 
@@ -126,7 +135,15 @@ internal fun tokenizeString(
 
             when (rule) {
                 is BeginEndRule -> {
-                    handleCaptures(grammar, lineText, currentIsFirstLine, currentStack, lineTokens, rule.beginCaptures, captureIndices)
+                    handleCaptures(
+                        grammar,
+                        lineText,
+                        currentIsFirstLine,
+                        currentStack,
+                        lineTokens,
+                        rule.beginCaptures,
+                        captureIndices
+                    )
                     lineTokens.produce(currentStack, captureIndices[0].end)
                     anchorPosition = captureIndices[0].end
 
@@ -150,7 +167,15 @@ internal fun tokenizeString(
                 }
 
                 is BeginWhileRule -> {
-                    handleCaptures(grammar, lineText, currentIsFirstLine, currentStack, lineTokens, rule.beginCaptures, captureIndices)
+                    handleCaptures(
+                        grammar,
+                        lineText,
+                        currentIsFirstLine,
+                        currentStack,
+                        lineTokens,
+                        rule.beginCaptures,
+                        captureIndices
+                    )
                     lineTokens.produce(currentStack, captureIndices[0].end)
                     anchorPosition = captureIndices[0].end
 
@@ -174,7 +199,15 @@ internal fun tokenizeString(
                 }
 
                 is MatchRule -> {
-                    handleCaptures(grammar, lineText, currentIsFirstLine, currentStack, lineTokens, rule.captures, captureIndices)
+                    handleCaptures(
+                        grammar,
+                        lineText,
+                        currentIsFirstLine,
+                        currentStack,
+                        lineTokens,
+                        rule.captures,
+                        captureIndices
+                    )
                     lineTokens.produce(currentStack, captureIndices[0].end)
 
                     // pop rule immediately since it is a MatchRule
@@ -450,7 +483,8 @@ private fun checkWhileConditions(
     while (whileRules.isNotEmpty()) {
         val entry = whileRules.removeAt(whileRules.lastIndex)
         val ruleScanner = entry.rule.compileWhileAG(
-            grammar, entry.stack.endRule,
+            grammar,
+            entry.stack.endRule,
             allowA = currentIsFirstLine,
             allowG = currentLinePos == anchorPosition
         )
@@ -467,8 +501,13 @@ private fun checkWhileConditions(
             if (r.captureIndices.isNotEmpty()) {
                 lineTokens.produce(entry.stack, r.captureIndices[0].start)
                 handleCaptures(
-                    grammar, lineText, currentIsFirstLine, entry.stack, lineTokens,
-                    entry.rule.whileCaptures, r.captureIndices
+                    grammar,
+                    lineText,
+                    currentIsFirstLine,
+                    entry.stack,
+                    lineTokens,
+                    entry.rule.whileCaptures,
+                    r.captureIndices
                 )
                 lineTokens.produce(entry.stack, r.captureIndices[0].end)
                 anchorPosition = r.captureIndices[0].end
