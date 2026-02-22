@@ -13,7 +13,7 @@ class InjectionGrammarTest {
         val stream = javaClass.classLoader
             .getResourceAsStream("conformance/first-mate/fixtures/$name")
             ?: error("Fixture not found: $name")
-        return GrammarReader.readGrammar(stream)
+        return stream.use { GrammarReader.readGrammar(it) }
     }
 
     private fun createRegistry(vararg grammars: RawGrammar): Registry {
@@ -39,7 +39,8 @@ class InjectionGrammarTest {
             injectionSelector = "comment",
             patterns = listOf(RawRule(match = "TODO", name = "keyword.todo.test"))
         )
-        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         val injections = grammar.getInjections()
 
         assertEquals(1, injections.size)
@@ -55,7 +56,8 @@ class InjectionGrammarTest {
             injectionSelector = "comment",
             patterns = listOf(RawRule(match = "x", name = "test.x"))
         )
-        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         val first = grammar.getInjections()
         val second = grammar.getInjections()
         assertSame("Same list instance expected (cache must return same reference)", first, second)
@@ -64,7 +66,8 @@ class InjectionGrammarTest {
     @Test
     fun `getInjections returns empty when no injectors registered`() {
         val hostRaw = RawGrammar(scopeName = "source.test", patterns = emptyList())
-        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         assertTrue(grammar.getInjections().isEmpty())
     }
 
@@ -76,7 +79,8 @@ class InjectionGrammarTest {
             injectionSelector = "L:comment",
             patterns = listOf(RawRule(match = "x", name = "test.x"))
         )
-        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         assertEquals(-1, grammar.getInjections()[0].priority)
     }
 
@@ -87,7 +91,8 @@ class InjectionGrammarTest {
             injectionSelector = "source.test",
             patterns = listOf(RawRule(match = "x", name = "test.x"))
         )
-        val grammar = createRegistry(selfInjectingGrammar).loadGrammar("source.test")!!
+        val grammar = createRegistry(selfInjectingGrammar).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         assertTrue(
             "Grammar must not inject into itself",
             grammar.getInjections().isEmpty()
@@ -107,7 +112,8 @@ class InjectionGrammarTest {
                 )
             )
         )
-        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         val injections = grammar.getInjections()
 
         assertEquals(1, injections.size)
@@ -119,7 +125,8 @@ class InjectionGrammarTest {
     @Test
     fun `hyperlink injected into C comment produces link scope`() {
         val grammar = createRegistry(loadFixture("c.json"), loadFixture("hyperlink.json"))
-            .loadGrammar("source.c")!!
+            .loadGrammar("source.c")
+            ?: error("Grammar 'source.c' not found")
 
         val line = "// http://example.com"
         val result = grammar.tokenizeLine(line)
@@ -138,7 +145,8 @@ class InjectionGrammarTest {
     @Test
     fun `injected scope only fires inside matching scope — not outside comment`() {
         val grammar = createRegistry(loadFixture("c.json"), loadFixture("hyperlink.json"))
-            .loadGrammar("source.c")!!
+            .loadGrammar("source.c")
+            ?: error("Grammar 'source.c' not found")
 
         val line = "int x; // http://example.com"
         val result = grammar.tokenizeLine(line)
@@ -171,7 +179,8 @@ class InjectionGrammarTest {
             injectionSelector = "L:source.test",
             patterns = listOf(RawRule(match = "hello", name = "greeting.injected"))
         )
-        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
 
         val line = "hello world"
         val result = grammar.tokenizeLine(line)
@@ -195,7 +204,8 @@ class InjectionGrammarTest {
                 )
             )
         )
-        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
 
         val line = "// TODO fix this"
         val result = grammar.tokenizeLine(line)
@@ -215,7 +225,8 @@ class InjectionGrammarTest {
             scopeName = "source.test",
             patterns = listOf(RawRule(match = "\\w+", name = "word.test"))
         )
-        val grammar = createRegistry(hostRaw).loadGrammar("source.test")!!
+        val grammar = createRegistry(hostRaw).loadGrammar("source.test")
+            ?: error("Grammar 'source.test' not found")
         assertTrue("No injectors", grammar.getInjections().isEmpty())
 
         val result = grammar.tokenizeLine("hello")
