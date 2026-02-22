@@ -1,6 +1,7 @@
 package dev.textmate.grammar.tokenize
 
 import dev.textmate.grammar.Grammar
+import dev.textmate.grammar.InjectionPriority
 import dev.textmate.grammar.InjectionRule
 import dev.textmate.grammar.rule.BeginEndRule
 import dev.textmate.grammar.rule.BeginWhileRule
@@ -283,7 +284,7 @@ private fun matchInjections(
 ): MatchInjectionsResult? {
     var bestMatchStart = Int.MAX_VALUE
     var bestResult: MatchRuleResult? = null
-    var bestPriority = 0
+    var bestPriority = InjectionPriority.DEFAULT
 
     val scopes = stack.contentNameScopesList?.getScopeNames() ?: return null
 
@@ -312,7 +313,7 @@ private fun matchInjections(
 
     val result = bestResult ?: return null
     return MatchInjectionsResult(
-        priorityMatch = bestPriority == -1,
+        priorityMatch = bestPriority == InjectionPriority.HIGH,
         matchRuleResult = result
     )
 }

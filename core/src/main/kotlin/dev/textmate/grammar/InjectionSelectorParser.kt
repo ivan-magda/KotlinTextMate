@@ -9,7 +9,7 @@ internal typealias ScopeMatcher = (List<String>) -> Boolean
  */
 internal class MatcherWithPriority(
     val matcher: ScopeMatcher,
-    val priority: Int  // -1 = L: (high), 0 = default, 1 = R: (low)
+    val priority: InjectionPriority
 )
 
 /**
@@ -21,8 +21,8 @@ internal class MatcherWithPriority(
  *   "text, string, comment"    — OR: any of the three
  *   "source.js comment"        — AND: both must appear in order
  *   "source.js -comment"       — AND NOT
- *   "L:comment"                — high priority (priority = -1)
- *   "R:comment"                — low priority (priority = 1)
+ *   "L:comment"                — high priority
+ *   "R:comment"                — low priority
  */
 internal object InjectionSelectorParser {
 
@@ -47,13 +47,13 @@ internal object InjectionSelectorParser {
         fun parse(): List<MatcherWithPriority> {
             val results = mutableListOf<MatcherWithPriority>()
             while (token != null) {
-                var priority = 0
+                var priority = InjectionPriority.DEFAULT
                 val t = token
                 if (t != null && t.length == 2 && t[1] == ':') {
                     priority = when (t[0]) {
-                        'L' -> -1
-                        'R' -> 1
-                        else -> 0
+                        'L' -> InjectionPriority.HIGH
+                        'R' -> InjectionPriority.LOW
+                        else -> InjectionPriority.DEFAULT
                     }
                     advance()
                 }

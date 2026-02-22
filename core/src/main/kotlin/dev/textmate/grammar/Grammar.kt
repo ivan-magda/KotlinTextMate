@@ -79,7 +79,7 @@ class Grammar(
             }
         }
 
-        result.sortBy { it.priority }
+        result.sortBy { it.priority.value }
         return result
     }
 

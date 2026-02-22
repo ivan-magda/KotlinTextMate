@@ -63,23 +63,23 @@ class InjectionSelectorParserTest {
     // --- Priority ---
 
     @Test
-    fun `L prefix gives priority minus one`() {
+    fun `L prefix gives HIGH priority`() {
         val matchers = InjectionSelectorParser.createMatchers("L:comment")
         assertEquals(1, matchers.size)
-        assertEquals(-1, matchers[0].priority)
+        assertEquals(InjectionPriority.HIGH, matchers[0].priority)
     }
 
     @Test
-    fun `R prefix gives priority one`() {
+    fun `R prefix gives LOW priority`() {
         val matchers = InjectionSelectorParser.createMatchers("R:comment")
         assertEquals(1, matchers.size)
-        assertEquals(1, matchers[0].priority)
+        assertEquals(InjectionPriority.LOW, matchers[0].priority)
     }
 
     @Test
-    fun `no prefix gives priority zero`() {
+    fun `no prefix gives DEFAULT priority`() {
         val matchers = InjectionSelectorParser.createMatchers("comment")
-        assertEquals(0, matchers[0].priority)
+        assertEquals(InjectionPriority.DEFAULT, matchers[0].priority)
     }
 
     // --- Edge cases ---

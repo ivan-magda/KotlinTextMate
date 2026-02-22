@@ -45,7 +45,7 @@ class InjectionGrammarTest {
 
         assertEquals(1, injections.size)
         assertEquals("comment", injections[0].debugSelector)
-        assertEquals(0, injections[0].priority)
+        assertEquals(InjectionPriority.DEFAULT, injections[0].priority)
     }
 
     @Test
@@ -72,7 +72,7 @@ class InjectionGrammarTest {
     }
 
     @Test
-    fun `getInjections L-priority injector has priority minus one`() {
+    fun `getInjections L-priority injector has HIGH priority`() {
         val hostRaw = RawGrammar(scopeName = "source.test", patterns = emptyList())
         val injectorRaw = RawGrammar(
             scopeName = "text.injector",
@@ -81,7 +81,7 @@ class InjectionGrammarTest {
         )
         val grammar = createRegistry(hostRaw, injectorRaw).loadGrammar("source.test")
             ?: error("Grammar 'source.test' not found")
-        assertEquals(-1, grammar.getInjections()[0].priority)
+        assertEquals(InjectionPriority.HIGH, grammar.getInjections()[0].priority)
     }
 
     @Test
